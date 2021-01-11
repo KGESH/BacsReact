@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "./Images/bacs_home_logo.jpg";
+import menu_bar from "./Images/bars-solid.svg"
 /*import "./FontAwesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 */
@@ -40,7 +41,7 @@ function Navigation() {
             </ul>
 
             <a href="" className="navigation__toggle_button">
-            
+                <i className="navigation__menu_bar">{menu_bar}</i>
             </a>
         </div>
     )
