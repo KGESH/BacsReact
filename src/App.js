@@ -1,12 +1,14 @@
 import React from "react";
 import { HashRouter, Route } from "react-router-dom";
 import Home from "./routes/Home";
-import Navigation from "./Navigation";
+import Header from "./Header"
+import Footer from "./Footer"
 
 function App() {
   return <HashRouter>
-    <Navigation />
+    <Header />
     <Route path="/" exact={true} component={Home}/>
+    <Footer />
   </HashRouter>
 }
 

@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "./Images/bacs_home_logo.jpg";
-import "./Navigation.css"
+/*import "./FontAwesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+*/
+import "./Navigation.css";
 
 function Navigation() {
     const nav_images = {
@@ -17,19 +20,28 @@ function Navigation() {
     
     return (
         <div className="top__navigation">
-            <Link to="/" className="navigation__home_image">
-                <img className="navigation__homeLogo" src= {logo} alt="Home"/>
-            </Link>
-            <span className="navigation__wrapper">
-                {/*<Link to="/Subscribe" className="navigation__text">구독하기</Link>*/}
-                <a href={url.subscribe} className="navigation__text" target="_blank">구독하기</a>
-                <Link to="/BrandStory" className="navigation__text">ABOUT US</Link>
-                {/*<Link to="/Shop" className="navigation__text">선물하기</Link>*/}
-                <a href={url.naverStore} className="navigation__text" target="_blank">선물하기</a>
-                <Link to="/Business" class="navigation__text">BUSINESS</Link>
-            </span>
-            <Link to="/LoginPage" class="navigation__text">로그인</Link>
-            <Link to="/Cart" class="navigation__text">장바구니</Link>
+            <div className ="navigation__home">
+                <Link to="/" className="navigation__link_home">
+                    <img className="navigation__homeLogo" src= {logo} alt="Home"/>
+                </Link>
+            </div>
+                
+            <ul className="navigation__menu">
+                <li><a href={url.subscribe} className="navigation__text" target="_blank">구독하기</a></li>    
+                <li><a href={url.naverStore} className="navigation__text" target="_blank">선물하기</a></li>
+                <li><Link to="/BrandStory" className="navigation__text">BACS이야기</Link></li>
+                <li><Link to="/Business" className="navigation__text">BUSINESS</Link></li>
+                <li><Link to="/FAQ" className="navigation__text">고객센터</Link></li>
+            </ul>
+
+            <ul className="navigation__customer">
+                <li><Link to="/LoginPage" class="navigation__text">로그인</Link></li>
+                <li><Link to="/Cart" class="navigation__text">장바구니</Link></li>
+            </ul>
+
+            <a href="" className="navigation__toggle_button">
+            
+            </a>
         </div>
     )
 }
