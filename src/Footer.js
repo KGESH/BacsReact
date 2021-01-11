@@ -1,9 +1,15 @@
 import React from "react";
+import "./Footer.css"
 
 function Footer() {
     return (
         <div className="footer__wrap">
-            Footer
+            <section className="section__copyright">
+                copyright
+            </section>
+            <section className="section__info">
+                info
+            </section>
         </div>
     );
 }

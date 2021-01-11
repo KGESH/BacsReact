@@ -1,0 +1,7 @@
+.section__story {
+  background-image: url(../Images/bacs_story_bg.jpeg);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

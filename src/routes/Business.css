@@ -1,0 +1,7 @@
+.section__business {
+  background-image: url(../Images/bacs_business_bg.png);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
