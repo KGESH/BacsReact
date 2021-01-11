@@ -7,6 +7,11 @@ body {
   margin: 0;
 }
 
+.home__title {
+  margin: 0;
+  padding-bottom: 3px;
+}
+
 .top__navigation {
   display: flex;
   justify-content: space-between;
@@ -28,6 +33,11 @@ body {
   padding-left: 0;
 }
 
+.navigation__mobile_menu_visible,
+.navigation__mobile_menu_invisible {
+  display: none;
+}
+
 .navigation__menu li {
   padding: 8px 12px;
 }
@@ -41,13 +51,42 @@ body {
   padding: 8px 12px;
 }
 
+.navigation__toggle_button {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .top__navigation {
     flex-direction: column;
   }
 
   .navigation__menu {
+    display: none;
+  }
+
+  .navigation__toggle_button {
+    position: absolute;
+    display: block;
+    left: 12px;
+    font-size: 24px;
+    color: white;
+    background-color: transparent;
+    border: 0;
+  }
+
+  .navigation__customer {
+    display: none;
+  }
+
+  .navigation__mobile_menu_visible {
     flex-direction: column;
-    padding: 8px 24px;
+    display: block;
+    list-style: none;
+    margin-right: 70%;
+    padding-left: 0;
+  }
+
+  .navigation__mobile_menu_invisible {
+    display: none;
   }
 }
