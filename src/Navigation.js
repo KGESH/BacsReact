@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "./Images/bacs_home_logo.jpg";
+import homeLogo from "./Bacs_Images/home_logo.svg";
 import "./Navigation.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { render } from '@testing-library/react';
+import cartIcon from "./Bacs_Images/cart.svg";
 
 class Navigation extends React.Component {
     
@@ -13,11 +13,6 @@ class Navigation extends React.Component {
         super(props);
         this.state ={
             visible: false
-        };
-        
-        this.nav_images = {
-            homeLogo : "./Images/bacs_home_logo.jpg",
-            cartLogo : ""
         };
     
         this.url = {
@@ -38,7 +33,7 @@ class Navigation extends React.Component {
             <div className="top__navigation">
                 <div className ="navigation__home">
                     <Link to="/" className="navigation__link_home">
-                        <img className="navigation__homeLogo" src= {logo} alt="Home"/>
+                        <img className="navigation__homeLogo" src= {homeLogo} alt="Home"/>
                     </Link>
                 </div>
                     
@@ -65,7 +60,9 @@ class Navigation extends React.Component {
                     <li><Link to="/Cart" class="navigation__text">장바구니</Link></li>
                 </ul>
 
-                
+                <Link to="/Cart" className="navigation__cart_button">
+                    <img  className="navigation__cartLogo" src={cartIcon}/>
+                </Link>
     
                 <button className="navigation__toggle_button">
                     <FontAwesomeIcon onClick={this.ToggleMenu} className="navigation__menu_button" icon={ faBars } size="1x" />
