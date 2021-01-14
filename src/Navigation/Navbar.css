@@ -35,6 +35,7 @@ a {
     opacity: 1;
     transition: all 0.5s ease;
   }
+
   .nav__menu_active {
     background: gray;
     left: 0;
@@ -52,7 +53,6 @@ a {
   }
 
   .navigation__homeLogo {
-    position: absolute;
     top: 0;
     left: 0;
   }

@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { isTypeNode } from 'typescript';
+
 import { MenuItems, NavCustomerItems , TempMenuItems } from "./MenuItems";
 import "./Navbar.css";
 import homeLogo from "../Bacs_Images/home_logo.svg";    
-import hamburgerLogo from "../Bacs_Images/hamburger_menu.svg";
 
 class Navbar extends React.Component {
     state = { clicked: false }
@@ -15,8 +14,6 @@ class Navbar extends React.Component {
     render() {
         return (
             <nav className="navigation__items">
-
-                
 
                 <Link to="/" className="navigation__link_home">
                     <img className="navigation__homeLogo" src= {homeLogo} alt="Home"/>

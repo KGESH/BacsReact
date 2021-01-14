@@ -1,11 +1,10 @@
 import React from "react";
 import Navigation from './Navigation';
-import Navbar from "./Navigation/Navbar";
-import MobileMenu from "./Navigation/MobileMenu";
+import Menu from "./Navigation/Menu";
 
 function Header() {
     return (
-        <MobileMenu />
+        <Menu />
     )
     
     

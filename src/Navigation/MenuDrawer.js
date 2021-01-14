@@ -4,6 +4,7 @@ import { IconButton, List, ListItem, ListItemText, Drawer } from "@material-ui/c
 import hamburgerLogo from "../Bacs_Images/hamburger_menu.svg";
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import "./MenuDrawer.css";
 
 
 const useStyles = makeStyles({
@@ -67,10 +68,10 @@ const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems}) => {
     return (
         <React.Fragment>
             <IconButton edge="start" aria-label="menu" onClick={toggleDrawer("top", true)}>
-                <img className="nav__menu" src= {hamburgerLogo} alt="Menu"/>
+                <img className="nav__menuLogo" src= {hamburgerLogo} alt="Menu"/>
             </IconButton>
             <Drawer anchor="top" open={state.top} onOpen={toggleDrawer("top", true)} onClose={toggleDrawer("top", false)}>
-                {MenuDrawerList("right")}
+                {MenuDrawerList("top")}
             </Drawer>
         </React.Fragment>
     )

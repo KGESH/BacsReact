@@ -1,0 +1,10 @@
+.nav__contanier,
+.nav__menu_list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__link_text {
+  text-decoration: none;
+  color: white;
+}
