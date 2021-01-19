@@ -8,3 +8,21 @@ a {
   width: 100%;
   height: 100%;
 }
+
+.home__subscribe_title {
+  font-family: "AppleSDGothicNeoL";
+  font-size: 27px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.home__subscribe_detail {
+  font-family: "AppleSDGothicNeoUL";
+  font-size: 13px;
+}
+
+.home__subscribe_link {
+  font-family: "AppleSDGothicNeoM";
+  color: #2e7be2;
+  font-size: 13px;
+}

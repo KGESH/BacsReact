@@ -1,13 +1,37 @@
-a {
-  text-decoration: none;
-  color: skyblue;
-}
-
 .home__detail_img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .section__detail {
   text-align: center;
+}
+
+.home__detail_title {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-family: "AppleSDGothicNeoL";
+  color: #4e4e4e;
+  font-size: 27px;
+}
+
+.home__detail_text_normal {
+  font-family: "AppleSDGothicNeoUL";
+  font-size: 13px;
+}
+
+.home__detail_text_bold {
+  font-family: "AppleSDGothicNeoR";
+  font-size: 13px;
+}
+
+.home__detail_text_super_bold {
+  font-family: "AppleSDGothicNeoSB";
+  font-size: 13px;
+}
+
+.home__storyLink {
+  font-family: "AppleSDGothicNeoM";
+  color: #2e7be2;
+  font-size: 13px;
 }

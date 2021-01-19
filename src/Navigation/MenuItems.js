@@ -1,7 +1,7 @@
 export const MenuItems = [
     
     {
-        title: "Bacs이야기",
+        title: "박스이야기",
         url: "Story",
         className: "nav-links"
     },

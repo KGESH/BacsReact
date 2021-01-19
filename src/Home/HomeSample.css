@@ -1,19 +1,44 @@
-.home__sample_img {
-  height: 100%;
-  width: 100%;
+.home__sample_title1 {
   padding-top: 50px;
+  font-family: "AppleSDGothicNeoUL";
+  font-size: 20px;
+}
+
+.home__sample_title2 {
+  font-family: "AppleSDGothicNeoM";
+  font-size: 28px;
+  padding-bottom: 25px;
 }
 
 .section__sample {
   display: flex;
   text-align: center;
   flex-direction: column;
+  background-color: #f1f1f1;
 }
 
-.sample__text_price {
-  font-size: 70%;
+.home__sample_img {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  width: 90%;
+  height: auto;
 }
 
-.sample__text_sale_rice {
-  font-size: 100%;
+.home__sample_detail_title {
+  font-family: "AppleSDGothicNeoL";
+  font-size: 14px;
+}
+
+.home__sample_detail_detail {
+  font-family: "AppleSDGothicNeoL";
+  font-size: 11px;
+}
+
+.home__sample_detail_price_before {
+  font-family: "AppleSDGothicNeoL";
+  font-size: 10px;
+}
+.home__sample_detail_price_after {
+  font-family: "AppleSDGothicNeoL";
+  font-size: 15px;
 }
