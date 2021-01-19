@@ -1,12 +1,15 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import homeSubscribeImg from "../Bacs_Images/test_img.png";
+import homeSubscribeImg from "../Bacs_Images/home_subscribe_test.png";
 import "./HomeSubscribe.css";
 
 const HomeSubscribe = () => {
     return (
         <section className="section__subscribe">
-            <img className="home__subscribe_img" src={homeSubscribeImg}/>
+            <div>
+                <img className="home__subscribe_img" src={homeSubscribeImg}/>
+
+            </div>
             <div className="home__subscribe_title">구독으로 시작되는<br/>즐겁고 편리한 커피생활</div>
             
             <div className="home__subscribe_detail">박스커피는 맛있는 커피를 넘어<br/>

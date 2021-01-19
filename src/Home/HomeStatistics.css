@@ -24,7 +24,6 @@
 .chart__cursor_brewed {
   padding-top: 20px;
   padding-bottom: 20px;
-  transform: matrix(-1, 0, 0, -1, 0, 0);
 }
 .chart__instant {
   width: 78px;

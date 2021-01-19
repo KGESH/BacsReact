@@ -14,7 +14,7 @@
   display: flex;
   text-align: center;
   flex-direction: column;
-  background-color: #f1f1f1;
+  background-image: url(../Bacs_Images/bg.png);
 }
 
 .home__sample_img {

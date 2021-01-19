@@ -1,4 +1,5 @@
 .section__home {
+  background-image: url(../Bacs_Images/home_main_bg.svg);
   padding-left: 50px;
   padding-top: 50px;
 }
@@ -19,6 +20,7 @@
   font-weight: 300;
   font-size: 10px;
   font-family: "AppleSDGothicNeoL";
+  padding-bottom: 50px;
 }
 
 .home__trialButton3 {
@@ -32,6 +34,7 @@
 .home__main_img {
   padding-top: 100px;
   padding-bottom: 50px;
+  padding-left: 50px;
   height: 100%;
   width: 100%;
 }

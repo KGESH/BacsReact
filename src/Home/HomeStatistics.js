@@ -1,6 +1,7 @@
 import React from "react";
 import "./HomeStatistics.css";
-import cursorLogo from "../Bacs_Images/home_cursor.svg";
+import blackCursorLogo from "../Bacs_Images/home_cursor_black.svg";
+import whiteCursorLogo from "../Bacs_Images/home_cursor_white.svg";
 
 const HomeStatistics = () => {
     return (
@@ -13,7 +14,7 @@ const HomeStatistics = () => {
                             2008년<br/>17%<br/>
                         </div>
                         <div className="chart__item">
-                            <img className="chart__cursor_instant" src={cursorLogo} />
+                            <img className="chart__cursor_instant" src={blackCursorLogo} />
                         </div>
                         <div className="chart__item_wrapper_instant">
                             2017년<br/>8%
@@ -30,7 +31,7 @@ const HomeStatistics = () => {
                             2017년<br/>22%<br/>
                         </div>
                         <div className="chart__item">
-                            <img className="chart__cursor_brewed" src={cursorLogo} />
+                            <img className="chart__cursor_brewed" src={whiteCursorLogo} />
                         </div>
                         <div className="chart__item_wrapper_brewed">
                             2008년<br/>3%
