@@ -1,0 +1,19 @@
+.home__sample_img {
+  height: 100%;
+  width: 100%;
+  padding-top: 50px;
+}
+
+.section__sample {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.sample__text_price {
+  font-size: 70%;
+}
+
+.sample__text_sale_rice {
+  font-size: 100%;
+}

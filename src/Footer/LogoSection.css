@@ -1,0 +1,13 @@
+.section__copyright {
+  display: flex;
+  background-color: #816c4f;
+  justify-content: space-between;
+}
+
+.footer__sns_icon_wrapper {
+  display: flex;
+}
+
+.footer__logo {
+  padding: 5px 5px 5px 5px;
+}

@@ -1,0 +1,13 @@
+.home__trialButton {
+  border-radius: 6px;
+  border: 1px solid gray;
+  background-color: orange;
+  color: white;
+  padding: 5px;
+}
+
+.home__main_img {
+  padding-top: 100px;
+  height: 100%;
+  width: 100%;
+}

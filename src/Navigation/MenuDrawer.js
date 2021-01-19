@@ -41,8 +41,6 @@ const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems}) => {
                         </ListItem>
                     </a>
                 ))}
-            </List>
-            <List component="nav">
                 {MenuItems.map(({title, url}) => (
                     <Link to={url} key={title} className={classes.linkText}>
                         <ListItem button>
@@ -50,29 +48,34 @@ const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems}) => {
                         </ListItem>
                     </Link>
                 ))}
+                <div className="menu__login_wrapper">
+                    {NavCustomerItems.map(({title, url}) => (
+                        <Link to={url} key={title} className={classes.linkText}>
+                            <ListItem button>
+                                <ListItemText primary={title} />
+                            </ListItem>
+                        </Link>
+                    ))}
+                </div>
+            </List>
+            {/*<List component="nav">
             </List>
             <List component="nav">
-                {NavCustomerItems.map(({title, url}) => (
-                    <Link to={url} key={title} className={classes.linkText}>
-                        <ListItem button>
-                            <ListItemText primary={title} />
-                        </ListItem>
-                    </Link>
-                ))}
-            </List>
+                
+            </List>*/}
             
         </div>
     )
 
 
     return (
-        <React.Fragment>
-            <IconButton edge="start" aria-label="menu" onClick={toggleDrawer("top", true)}>
-                <img className="nav__menuLogo" src= {hamburgerLogo} alt="Menu"/>
-            </IconButton>
-            <Drawer anchor="top" open={state.top} onOpen={toggleDrawer("top", true)} onClose={toggleDrawer("top", false)}>
-                {MenuDrawerList("top")}
-            </Drawer>
+        <React.Fragment>                
+                <IconButton edge="start" aria-label="menu" onClick={toggleDrawer("top", true)}>
+                    <img className="nav__menuLogo" src= {hamburgerLogo} alt="Menu"/>
+                </IconButton>
+                <Drawer anchor="top" open={state.top} onOpen={toggleDrawer("top", true)} onClose={toggleDrawer("top", false)}>
+                    {MenuDrawerList("top")}
+                </Drawer>
         </React.Fragment>
     )
 }

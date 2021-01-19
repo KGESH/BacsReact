@@ -5,7 +5,7 @@ import Story from "./routes/Story";
 import FAQ from "./routes/Faq";
 import Business from "./routes/Business"
 import Header from "./Header";
-import Footer from "./Footer";
+import Footer from "./Footer/Footer";
 
 function App() {
   return <HashRouter>
@@ -15,7 +15,7 @@ function App() {
     <Route path="/Business" component={Business}/>
     <Route path="/FAQ" component={FAQ}/>
 
-    
+
     <Footer />
   </HashRouter>
 }

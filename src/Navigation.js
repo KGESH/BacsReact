@@ -1,4 +1,4 @@
-import React from "react";
+{/* import React from "react";
 import { Link } from "react-router-dom";
 import homeLogo from "./Bacs_Images/home_logo.svg";
 import "./Navigation.css";
@@ -74,4 +74,4 @@ class Navigation extends React.Component {
     }
 }
 
-export default Navigation;
+export default Navigation;*/}

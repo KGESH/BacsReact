@@ -1,25 +1,13 @@
-
 .section__home {
-    background-image: url(../Images/bacs_home_bg.jpg);
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
-.section__detail {
-    background-image: url(../Images/bacs_home_detail.png);
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
+ {
+  /*.section__detail {
+height: 100vh;
+background-position: center;
+background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
 }
-
-.home__trialButton {
-    border-radius: 6px;
-    border: 1px solid gray;
-    background-color: orange;
-    color: white;
-    padding: 5px;
+*/
 }

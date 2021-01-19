@@ -8,3 +8,20 @@
   text-decoration: none;
   color: white;
 }
+
+.nav__mobile_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.MuiAppBar-root {
+  background-color: white;
+}
+
+.nav__cartLogo {
+  padding-top: 9px;
+}
+
+.nav__homeLogo {
+  padding-top: 9px;
+}

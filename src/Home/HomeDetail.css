@@ -1,0 +1,13 @@
+a {
+  text-decoration: none;
+  color: skyblue;
+}
+
+.home__detail_img {
+  width: 100%;
+  height: 100%;
+}
+
+.section__detail {
+  text-align: center;
+}

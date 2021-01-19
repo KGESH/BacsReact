@@ -1,0 +1,20 @@
+.home__statistics {
+  background-color: limegreen;
+  text-align: center;
+}
+
+.statistics__chart_section {
+  display: flex;
+  text-align: center;
+  background-color: lightpink;
+  justify-content: space-around;
+  padding-top: 15px;
+}
+
+.section__chart_wrapper_instant {
+  background-color: white;
+}
+
+.section__chart_wrapper_brewed {
+  background-color: burlywood;
+}
