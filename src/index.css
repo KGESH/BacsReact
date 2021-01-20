@@ -34,3 +34,7 @@
   font-family: AppleSDGothicNeoUL;
   src: url(./Font/AppleSDGothicNeoUL.ttf);
 }
+
+body {
+  margin: 0px;
+}

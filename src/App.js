@@ -6,6 +6,7 @@ import FAQ from "./routes/Faq";
 import Business from "./routes/Business"
 import Header from "./Header";
 import Footer from "./Footer/Footer";
+import LoginPage from './routes/Login';
 
 function App() {
   return <HashRouter>
@@ -14,6 +15,7 @@ function App() {
     <Route path="/Story" component={Story}/>
     <Route path="/Business" component={Business}/>
     <Route path="/FAQ" component={FAQ}/>
+    <Route path="/Login" component={LoginPage}/>
 
 
     <Footer />

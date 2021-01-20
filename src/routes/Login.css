@@ -1,0 +1,31 @@
+.loginPage__text_wrapper {
+  padding-top: 50px;
+  padding-left: 22px;
+  padding-bottom: 46px;
+}
+
+.loginPage__title {
+  font-family: "AppleSDGothicNeoM";
+  font-size: 23px;
+}
+
+.loginPage__detail {
+  font-size: 23px;
+  font-family: "AppleSDGothicNeoL";
+}
+
+.loginPage_button_wrapper {
+  border-color: red;
+  border-width: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 300px;
+}
+
+.loginPage__kakao_button,
+.loginPage__naver_button,
+.loginPage__email_button {
+  width: 100%;
+  padding-bottom: 15px;
+}

@@ -14,7 +14,13 @@
   display: flex;
   text-align: center;
   flex-direction: column;
-  background-image: url(../Bacs_Images/bg.png);
+  background-color: #f1f1f1;
+}
+.section_sample_detail {
+  background-image: url(../Bacs_Images/bg6.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
 }
 
 .home__sample_img {
