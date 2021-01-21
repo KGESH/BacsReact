@@ -9,9 +9,10 @@
   background-color: #f1f1f1;
   padding-top: 15px;
   justify-content: center;
+  
 }
 
-.statistics__source {
+.statistics__source { 
   font-family: "AppleSDGothicNeoUL";
   font-size: 10px;
   padding-top: 50px;
@@ -29,12 +30,16 @@
   width: 78px;
   display: inline-block;
   padding-right: 10px;
+
+
 }
 
 .chart__brewed {
   width: 78px;
   display: inline-block;
   padding-left: 10px;
+  
+  
 }
 
 .chart__item_wrapper_instant {
@@ -44,6 +49,10 @@
   background-color: #ffffff;
   font-size: 13px;
   border-radius: 5px;
+  border-style: solid;
+  border-color: gray;
+  border-width: thin;
+  
 }
 
 .chart__item_wrapper_brewed {
@@ -53,12 +62,16 @@
   padding-bottom: 15px;
   border-radius: 5px;
   background-color: #92764d;
+  
 }
 
 .section__chart_wrapper_brewed {
   background-color: #92764d;
   border-radius: 5px;
   color: white;
+  border-style: solid;
+  border-color: gray;
+  border-width: thin;
 }
 
 .chart__item {

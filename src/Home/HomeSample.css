@@ -26,7 +26,8 @@
 .home__sample_img {
   padding-top: 70px;
   padding-bottom: 70px;
-  width: 90%;
+  padding-right: 35px;
+  width: 65%;
   height: auto;
 }
 

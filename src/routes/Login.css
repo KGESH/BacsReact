@@ -15,12 +15,11 @@
 }
 
 .loginPage_button_wrapper {
-  border-color: red;
-  border-width: 5px;
   display: flex;
   flex-direction: column;
   text-align: center;
   padding-bottom: 300px;
+  
 }
 
 .loginPage__kakao_button,
@@ -28,4 +27,5 @@
 .loginPage__email_button {
   width: 100%;
   padding-bottom: 15px;
+  
 }

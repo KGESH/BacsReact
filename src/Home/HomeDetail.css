@@ -1,6 +1,10 @@
 .home__detail_img {
   width: 100%;
   height: auto;
+  border-radius: 3px;
+  border-color: gray;
+  border-width: thin;
+  border-style: solid;
 }
 
 .section__detail {
