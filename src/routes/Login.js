@@ -16,14 +16,14 @@ const LoginPage = () => {
 
             <div className="loginPage_button_wrapper">
                 <Link to="/SignUpFromKakao" className="loginPage__kakao_button">
-                    <img src={kakaoButton} />
+                    <img className="loginPage__button_img" src={kakaoButton} />
                 </Link>
                     
                 <Link to="/SignUpFromNaver" className="loginPage__naver_button" type="button">
-                    <img src={naverButton} />
+                    <img className="loginPage__button_img" src={naverButton} />
                 </Link>
                 <Link to="/SignUpFromEmail" className="loginPage__email_button" type="button">
-                    <img src={emailButton} />
+                    <img className="loginPage__button_img" src={emailButton} />
                 </Link>
             </div>
             
