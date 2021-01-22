@@ -7,6 +7,7 @@ import Business from "./routes/Business"
 import Header from "./Header";
 import Footer from "./Footer/Footer";
 import LoginPage from './routes/Login';
+import { firestore } from "./firebase";
 
 function App() {
   return <HashRouter>
