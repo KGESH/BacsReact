@@ -14,7 +14,7 @@ import "./Menu.css";
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: grey[50]
+            main: "#FFFFFF"
         }
     },
     shadows: ["none"]

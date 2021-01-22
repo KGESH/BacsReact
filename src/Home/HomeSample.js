@@ -17,11 +17,14 @@ const HomeSample = () => {
             <section className="section_sample_detail">
 
             <img className="home__sample_img" src={homeSampleImg}/>
-            <div className="home__sample_detail_title">첫 구독 혜택</div>
-            <div className="home__sample_detail_detail">구독 패키지 + 드립백 스탠드 + 샘플팩</div>
-            <div>
-            <span className="home__sample_detail_price_before"><del>40,000원 </del></span>
-            <span className="home__sample_detail_price_a    fter">22,000원</span>
+            <div className="home__sample_detail_wrapper">
+
+                <div className="home__sample_detail_title">첫 구독 혜택</div>
+                <div className="home__sample_detail_detail">구독 패키지 + 드립백 스탠드 + 샘플팩</div>
+                <div>
+                <span className="home__sample_detail_price_before"><del>40,000원 </del></span>
+                <span className="home__sample_detail_price_after">22,000원</span>
+                </div>
             </div>
             <div><br/><br/><br/></div>  {/***  white space  ***/}
             </section>

@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import homeDetailImg from "../Bacs_Images/home_detail.jpg";
+import homeDetailImg from "../Bacs_Images/home_detail_before2.png";
 import "./HomeDetail.css";
 
 const HomeDetail = () => {
