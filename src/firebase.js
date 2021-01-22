@@ -11,8 +11,16 @@ const firebaseConfig = {
         measurementId: "G-593RBN7Q32"
 };
 
+
+const FireBase = () => {
+        return (
+                <body>
+                        <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+                        <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
+                </body>
+        );
+}
+
 firebase.initializeApp(firebaseConfig);
 
-const firestore = firebase.firestore();
-
-export {firestore};
+export default FireBase;

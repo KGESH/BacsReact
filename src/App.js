@@ -7,17 +7,17 @@ import Business from "./routes/Business"
 import Header from "./Header";
 import Footer from "./Footer/Footer";
 import LoginPage from './routes/Login';
-import { firestore } from "./firebase";
+import FireBase from "./FireBase";
 
 function App() {
   return <HashRouter>
+    <FireBase />
     <Header />
     <Route path="/" exact={true} component={Home}/>
     <Route path="/Story" component={Story}/>
     <Route path="/Business" component={Business}/>
     <Route path="/FAQ" component={FAQ}/>
     <Route path="/Login" component={LoginPage}/>
-
 
     <Footer />
   </HashRouter>
