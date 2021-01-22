@@ -14,20 +14,24 @@
   display: flex;
   text-align: center;
   flex-direction: column;
-  background-color: #f1f1f1;
-}
-.section_sample_detail {
+  /*background-color: #f1f1f1;*/
   background-image: url(../Bacs_Images/bg6.png);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
+}
+.section_sample_detail {
 }
 
 .home__sample_img {
   padding-top: 70px;
-  padding-bottom: 70px;
-  width: 90%;
+  padding-right: 35px;
+  width: 65%;
   height: auto;
+}
+
+.home__sample_detail_wrapper {
+  margin-top: 20%;
+  padding-bottom: 90px;
 }
 
 .home__sample_detail_title {
