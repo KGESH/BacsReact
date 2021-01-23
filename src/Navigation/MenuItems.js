@@ -22,12 +22,12 @@ export const NavCustomerItems = [
         title: "로그인",
         url: "Login",
         className: "nav-links"
-    }
-    /*{
+    },
+    {
         title: "장바구니",
         url: "Cart",
         className: "nav-links" 
-    } */
+    }
 ]
 
 export const TempMenuItems = [
