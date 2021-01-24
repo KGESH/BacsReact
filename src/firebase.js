@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 /*import "firebase/firebase";*/
 import "firebase/firestore";
 import "firebase/auth";
+import * as admin from "firebase-admin";
 
 const firebaseConfig = {
         apiKey: "AIzaSyBqsqxTkOV4dYtUeA983-xb16wBxFgnR40",
@@ -17,5 +18,5 @@ firebase.initializeApp(firebaseConfig);
 
 const firestore = firebase.firestore();
 const auth = firebase.auth();
-
-export { firestore, auth };
+const fireAdmin = admin;
+export { firestore, auth, fireAdmin};
