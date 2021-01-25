@@ -15,8 +15,8 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+admin.initializeApp(firebaseConfig);
 
 const firestore = firebase.firestore();
 const auth = firebase.auth();
-const fireAdmin = admin;
-export { firestore, auth, fireAdmin};
+export { firestore, auth};

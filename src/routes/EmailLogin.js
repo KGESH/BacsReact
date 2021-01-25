@@ -1,6 +1,6 @@
 import { AddAlarmOutlined } from '@material-ui/icons';
 import React, { useState } from "react";
-import { firestore, auth, fireAdmin} from "../FireBase";
+import { firestore, auth} from "../FireBase";
 
 
 
@@ -24,46 +24,39 @@ const EmailLogin = () => {
 
 
 
+    const OnLoginClick = () => {
+        console.log("login clicked");
+        auth.signInWithEmailAndPassword(Email, Password)
+        .then((user) => {
+            console.log(Email);
+            console.log(Password);
+            console.log("Login success!");
+        })
+        .catch((error) => {
+            console.error("Login error!", error);
+                switch(error.code) {
+                    case "auth/invalid-email":
+                        alert('유효하지 않은 메일입니다');
+                        break;
+                    case "auth/user-disabled":
+                        alert('사용이 정지된 유저 입니다.')
+                        break;
+                    case "auth/user-not-found":
+                        alert('사용자를 찾을 수 없습니다.')
+                        break;
+                    case "auth/wrong-password":
+                        alert("잘못된 패스워드 입니다.");
+                        break;
+                }
+        })
+        
+    }
 
 
     const OnButtonClick = () => {
         console.log(Name);
         console.log(Email);
         console.log(Password);
-
-        auth.signInWithPopup(googleProvider);
-
-        auth.signInWithPopup(googleProvider)
-        .then((result) => {
-            const token = result.credntial.accessToken;
-            const user = result.user;
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.email;
-            const credntial = error.credntial;
-        });
-
-        
-
-        // fireAdmin
-        // .auth()
-        // .createUser({
-        //     email: "adminTest@test.com",
-        //     emailVerified: false,
-        //     phoneNumber: "+821053184958",
-        //     displayName: "Test Jee",
-        //     disabled: false,
-        // })
-        // .then((userRecord) => {
-        //     console.log("success created new user!", userRecord.uid);
-        // })
-        // .catch((error) => {
-        //     console.log("error creating new user", error);
-        // });
-        
-
 
         // auth.signInWithEmailAndPassword(Email, Password)
         // .then((user) => {
@@ -86,6 +79,42 @@ const EmailLogin = () => {
         //             break;
         //     }
         // });        
+
+        auth.createUserWithEmailAndPassword(Email, Password)
+        .then((user) => {
+            console.log(Email);
+            console.log(Password);
+            console.log("singup success!");
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+
+            console.log(errorCode);
+            console.log(errorMessage);
+        })
+        
+
+        
+        // auth.signInWithPopup(googleProvider);
+
+        // auth.signInWithPopup(googleProvider)
+        // .then((result) => {
+        //     const token = result.credntial.accessToken;
+        //     const user = result.user;
+        // })
+        // .catch((error) => {
+        //     const errorCode = error.code;
+        //     const errorMessage = error.message;
+        //     const email = error.email;
+        //     const credntial = error.credntial;
+        // });
+        
+
+       
+
+
+        
     }
 
     
@@ -96,8 +125,8 @@ const EmailLogin = () => {
             <input type="email" className="idInput" onChange={OnChangeEmailHandler} placeholder="input id plz" />
             <input type="password" className="pwInput" placeholder="input pw plz" onChange={OnChangePasswordHandler} />
             <button className="inputBtn" onClick={OnButtonClick}>sign up</button>
+            <button className="inputBtn" onClick={OnLoginClick}>Login</button>
 
-            
 
         </form>
 
