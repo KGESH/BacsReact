@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import { auth, database } from "../FireBase";
 
 const EmailSignUp = () => {
@@ -33,19 +34,21 @@ const EmailSignUp = () => {
     }
 
 
-    const writeUserData = (userId, email, name, mainAddress , subAddress) => {
+    const writeUserData = (userId, email, name, phoneNumber, mainAddress , subAddress) => {
         database.ref("users/" + userId).set({
             userName: name,
             email: email,
             userId: userId,
             address: {"main" : mainAddress, "sub": subAddress},
+            phoneNumber: phoneNumber,
             cart: {},
             subscribe: {},
         });
     }
 
+    
     const OnSignUpButtonClick = (event) => {
-
+        
         event.preventDefault();
         
         auth.createUserWithEmailAndPassword(Email, Password)
@@ -67,7 +70,7 @@ const EmailSignUp = () => {
             console.log(errorMessage);
         })
 
-        writeUserData(UserId, Email, Name, "seoul", "misung122");
+        writeUserData(UserId, Email, Name, "010-1234-1234", "seoul", "misung122");
     }
 
     return (
