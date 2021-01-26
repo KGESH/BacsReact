@@ -8,6 +8,7 @@ import Header from "./Header";
 import Footer from "./Footer/Footer";
 import LoginPage from './routes/Login';
 import EmailLogin from "./routes/EmailLogin";
+import EmailSignUp from "./routes/EmailSignUp";
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
     <Route path="/Business" component={Business}/>
     <Route path="/FAQ" component={FAQ}/>
     <Route path="/Login" component={LoginPage}/>
-    <Route path="/SignUpFromEmail" component={EmailLogin}/>
+    <Route path="/EmailSignUp" component={EmailSignUp}/>
 
     <Footer />
   </HashRouter>

@@ -2,11 +2,12 @@ import firebase from "firebase/app";
 /*import "firebase/firebase";*/
 import "firebase/firestore";
 import "firebase/auth";
-import * as admin from "firebase-admin";
+import "firebase/database";
 
 const firebaseConfig = {
         apiKey: "AIzaSyBqsqxTkOV4dYtUeA983-xb16wBxFgnR40",
         authDomain: "massive-woods-302507.firebaseapp.com",
+        databaseURL: "https://massive-woods-302507-default-rtdb.firebaseio.com",
         projectId: "massive-woods-302507",
         storageBucket: "massive-woods-302507.appspot.com",
         messagingSenderId: "624083996854",
@@ -15,8 +16,9 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-admin.initializeApp(firebaseConfig);
 
 const firestore = firebase.firestore();
 const auth = firebase.auth();
-export { firestore, auth};
+const database = firebase.database();
+
+export { firestore, auth, database };

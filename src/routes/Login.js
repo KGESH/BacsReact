@@ -23,7 +23,7 @@ const LoginPage = () => {
                 <Link to="/SignUpFromNaver" className="loginPage__naver_button" type="button">
                     <img className="loginPage__button_img" src={naverButton} />
                 </Link>
-                <Link to="/SignUpFromEmail" className="loginPage__email_button" type="button">
+                <Link to="/EmailSignUp" className="loginPage__email_button" type="button">
                     <img className="loginPage__button_img" src={emailButton} />
                 </Link>
             </div>
