@@ -59,7 +59,6 @@ const EmailSignUp = () => {
             console.log(Password);
             console.log(Age);
             console.log(Address);
-
             console.log("sign up success!");
         })
         .catch((error) => {

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from "react";
-import { HashRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Story from "./routes/Story";
 import FAQ from "./routes/Faq";
@@ -10,10 +10,14 @@ import LoginPage from './routes/Login';
 import EmailLogin from "./routes/EmailLogin";
 import EmailSignUp from "./routes/EmailSignUp";
 
+
+
+
 function App() {
 
 
-  return <HashRouter>    
+  return <BrowserRouter>
+    
     <Header />
     <Route path="/" exact={true} component={Home}/>
     <Route path="/Story" component={Story}/>
@@ -23,7 +27,7 @@ function App() {
     <Route path="/EmailSignUp" component={EmailSignUp}/>
 
     <Footer />
-  </HashRouter>
+  </BrowserRouter>
 }
 
 export default App;
