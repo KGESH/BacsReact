@@ -1,4 +1,5 @@
-/*const functions = require("firebase-functions");
+const request = require("request-promise");
+const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 
 admin.initializeApp({
@@ -6,9 +7,10 @@ admin.initializeApp({
     databaseURL: "https://massive-woods-302507-default-rtdb.firebaseio.com/"
 });
 
-const request = require("request-promise");
 
 const kakaoRequestMeUrl = 'https://kapi.kakao.com/v2/user/me';
+//const kakaoRequestMeUrl = 'https://kapi.kakao.com/v1/user/me?secure_resource=true';
+
 
 const requestMe = (kakaoAccessToken) => {
     console.log("requesting user profile from kakao api server.");
@@ -18,7 +20,6 @@ const requestMe = (kakaoAccessToken) => {
         url: kakaoRequestMeUrl,
     })
 } 
-*/
 /**
    * updateOrCreateUser - Update Firebase user with the give email, create if
    * none exists.
@@ -29,7 +30,7 @@ const requestMe = (kakaoAccessToken) => {
    * @param  {String} photoURL      profile photo url
    * @return {Prommise<UserRecord>} Firebase user record in a promise
    */
-/*
+
 const updateOrCreateUser = (userId, email, displayName, photoURL) => {
     console.log('updating or creating a firebase user');
 
@@ -63,7 +64,7 @@ const updateOrCreateUser = (userId, email, displayName, photoURL) => {
         throw error;
     });
 }
-*/
+
 /**
    * createFirebaseToken - returns Firebase token using Firebase Admin SDK
    *
@@ -72,7 +73,7 @@ const updateOrCreateUser = (userId, email, displayName, photoURL) => {
    */
 
 
-/*const createFirebaseToken = (kakaoAccessToken) => {
+const createFirebaseToken = (kakaoAccessToken) => {
     return requestMe(kakaoAccessToken).then((response) => {
         const body = JSON.parse(response);
         console.log(body);
@@ -94,7 +95,10 @@ const updateOrCreateUser = (userId, email, displayName, photoURL) => {
         console.log(`creating a custom firebase token based on uid ${userId}`);
         return admin.auth().createCustomToken(userId, {provider: 'KAKAO'});
     });
-}
+};
+
+
+
 
 exports.kakaoCustomAuth = functions.region('asia-northeast1').https.onRequest((req, res) => {
     const token = req.body.token;
@@ -111,15 +115,4 @@ exports.kakaoCustomAuth = functions.region('asia-northeast1').https.onRequest((r
     return;
 })
 
-*/
 
-
-/*export { admin };*/
-
-const functions = require('firebase-functions')
-const express = require('express')
-const app = express()
-app.get('/', (req, res) => {
-  res.send('hello world!')
-})
-exports.app = functions.https.onRequest(app)
