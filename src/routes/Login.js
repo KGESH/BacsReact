@@ -22,13 +22,38 @@ const LoginPage = () => {
         const { Kakao } = window;
         Kakao.init('1b080fda72ac152ebeeea5ad36adad42');
         console.log(`카카오 인증 : ${Kakao.isInitialized()}`);
+        
         Kakao.Auth.authorize({
             redirectUri: "http://localhost:3000/oauth"
         });
+        
+    //     Kakao.Auth.createLoginButton({
+    //         container: '#kakao-login-btn',
+    //         success: function(authObj) {
+    //       // 로그인 성공시, API를 호출합니다.
+    //          window.Kakao.API.request({
+    //             url: '/v2/user/me',
+    //             success: function(res) {
+    //               alert(`login success !${JSON.stringify(res)}`);
+    //               console.log(res);
+    //         },
+    //         fail: function(error) {
+    //           alert(JSON.stringify(error));
+    //         }
+    //       });
+    //     },
+    //     fail: function(err) {
+    //       alert(JSON.stringify(err));
+    //     }
+    //   })
+
+       
+
+        
     
         // Kakao.Auth.login({
         //     success: (authObj) => {
-        //         fetch('https://kapi.kakao.com/v2/user/me', {
+        //         fetch('https://kauth.kakao.com/oauth/token', {
         //             method: "POST",
         //             body: JSON.stringify({
         //                 access_token: authObj.access_token,
@@ -67,9 +92,14 @@ const LoginPage = () => {
                 {/*    
             <Link to="/SignUpFromKakao" className="loginPage__kakao_button"></Link>
                 */}
-                <Button onClick={OnKakaoButtonClick} >
+                {/* <Button onClick={OnKakaoButtonClick} >
+                    <img className="loginPage__button_img" src={kakaoButton} />
+                </Button> */}
+
+                <Button onClick={OnKakaoButtonClick} id="kakao-login-btn" >
                     <img className="loginPage__button_img" src={kakaoButton} />
                 </Button>
+                
                     
                 <Link to="/SignUpFromNaver" className="loginPage__naver_button" type="button">
                     <img className="loginPage__button_img" src={naverButton} />

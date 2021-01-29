@@ -10,8 +10,10 @@ admin.initializeApp({
 });
 
 
-const kakaoRequestMeUrl = 'https://kapi.kakao.com/v2/user/me';
-//const kakaoRequestMeUrl = 'https://kapi.kakao.com/v1/user/me?secure_resource=true';
+//const kakaoRequestMeUrl = 'https://kapi.kakao.com/v2/user/me';
+const kakaoRequestMeUrl = 'https://kapi.kakao.com/v1/user/me?secure_resource=true';
+
+
 
 
 const requestMe = (kakaoAccessToken) => {
