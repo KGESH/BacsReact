@@ -22,42 +22,38 @@ const LoginPage = () => {
         const { Kakao } = window;
         Kakao.init('1b080fda72ac152ebeeea5ad36adad42');
         console.log(`카카오 인증 : ${Kakao.isInitialized()}`);
-    
-    
-        Kakao.Auth.login({
-            success: (authObj) => {
-                fetch('https://kapi.kakao.com/v2/user/me', {
-                    method: "POST",
-                    body: JSON.stringify({
-                        access_token: authObj.access_token,
-                    }),
-
-                })
-    
-                .then(res=> res.json())
-                .then(res => {
-                    console.log("then token val : " + res.access_token);
-                    localStorage.setItem("Kakao_token", res.access_token);
-                    if (res.access_token) {
-                        alert("카카오 로그인 성공!")
-                        history.push("/oauth");
-                    }
-                })
-            },
-            fail: (err) => {
-                alert(JSON.stringify(err))
-            },
-        })
-    
-    
-        /*const { Kakao } = window;
-        Kakao.init('1b080fda72ac152ebeeea5ad36adad42');
-        console.log(`카카오 인증 : ${Kakao.isInitialized()}`);
-    
         Kakao.Auth.authorize({
             redirectUri: "http://localhost:3000/oauth"
         });
-        */
+    
+        // Kakao.Auth.login({
+        //     success: (authObj) => {
+        //         fetch('https://kapi.kakao.com/v2/user/me', {
+        //             method: "POST",
+        //             body: JSON.stringify({
+        //                 access_token: authObj.access_token,
+        //             }),
+        //         })
+    
+        //         .then(res=> res.json())
+        //         .then(res => {
+        //             console.log("then token val : " + res.access_token);
+        //             localStorage.setItem("Kakao_token", res.access_token);
+        //             if (res.access_token) {
+        //                 alert("카카오 로그인 성공!")
+        //                 history.push("/oauth");
+        //             }
+        //         })
+        //     },
+        //     fail: (err) => {
+        //         alert(JSON.stringify(err))
+        //     },
+        // })
+        
+        
+           
+    
+        
     }    
 
     return (

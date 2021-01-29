@@ -2,8 +2,10 @@ const request = require("request-promise");
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 
+const serviceAccount = require("./serviceAccount.json");
+
 admin.initializeApp({
-    serviceAccountId: 'firebase-adminsdk-bpibo@massive-woods-302507.iam.gserviceaccount.com',
+    credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://massive-woods-302507-default-rtdb.firebaseio.com/"
 });
 
@@ -99,8 +101,10 @@ const createFirebaseToken = (kakaoAccessToken) => {
 
 
 
-
-exports.kakaoCustomAuth = functions.region('asia-northeast1').https.onRequest((req, res) => {
+    
+//exports.kakaoCustomAuth = functions.region('asia-northeast1').https.onRequest((req, res) => {
+exports.kakaoCustomAuth = functions.https.onRequest((req, res) => {
+    console.log(`Kakao request : ${req}`);
     const token = req.body.token;
     if (!token) {
         return res.status(400).send({error : 'there is no token.'});
@@ -114,5 +118,4 @@ exports.kakaoCustomAuth = functions.region('asia-northeast1').https.onRequest((r
 
     return;
 })
-
 

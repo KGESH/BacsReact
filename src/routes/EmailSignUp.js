@@ -43,7 +43,7 @@ const EmailSignUp = () => {
             phoneNumber: phoneNumber,
             cart: {},
             subscribe: {},
-        });
+        }); 
     }
 
     

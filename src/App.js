@@ -9,7 +9,7 @@ import Footer from "./Footer/Footer";
 import LoginPage from './routes/Login';
 import EmailLogin from "./routes/EmailLogin";
 import EmailSignUp from "./routes/EmailSignUp";
-
+import KakaoLoginHome from "./routes/KakaoLoginHome";
 
 
 
@@ -20,6 +20,7 @@ function App() {
     
     <Header />
     <Route path="/" exact={true} component={Home}/>
+    <Route path="/oauth" component={KakaoLoginHome} />
     <Route path="/Story" component={Story}/>
     <Route path="/Business" component={Business}/>
     <Route path="/FAQ" component={FAQ}/>
