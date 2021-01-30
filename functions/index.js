@@ -6,12 +6,12 @@ const serviceAccount = require("./serviceAccount.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://massive-woods-302507-default-rtdb.firebaseio.com/"
+    databaseURL: "https://massive-woods-302507-default-rtdb.firebaseio.com/",
 });
 
 
-//const kakaoRequestMeUrl = 'https://kapi.kakao.com/v2/user/me';
-const kakaoRequestMeUrl = 'https://kapi.kakao.com/v1/user/me?secure_resource=true';
+const kakaoRequestMeUrl = 'https://kapi.kakao.com/v2/user/me';
+//const kakaoRequestMeUrl = 'https://kapi.kakao.com/v1/user/me?secure_resource=true';
 
 
 
@@ -24,16 +24,6 @@ const requestMe = (kakaoAccessToken) => {
         url: kakaoRequestMeUrl,
     })
 } 
-/**
-   * updateOrCreateUser - Update Firebase user with the give email, create if
-   * none exists.
-   *
-   * @param  {String} userId        user id per app
-   * @param  {String} email         user's email address
-   * @param  {String} displayName   user
-   * @param  {String} photoURL      profile photo url
-   * @return {Prommise<UserRecord>} Firebase user record in a promise
-   */
 
 const updateOrCreateUser = (userId, email, displayName, photoURL) => {
     console.log('updating or creating a firebase user');
@@ -68,13 +58,6 @@ const updateOrCreateUser = (userId, email, displayName, photoURL) => {
         throw error;
     });
 }
-
-/**
-   * createFirebaseToken - returns Firebase token using Firebase Admin SDK
-   *
-   * @param  {String} kakaoAccessToken access token from Kakao Login API
-   * @return {Promise<String>}                  Firebase token in a promise
-   */
 
 
 const createFirebaseToken = (kakaoAccessToken) => {

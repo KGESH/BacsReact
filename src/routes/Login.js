@@ -22,36 +22,14 @@ const LoginPage = () => {
         const { Kakao } = window;
         Kakao.init('1b080fda72ac152ebeeea5ad36adad42');
         console.log(`카카오 인증 : ${Kakao.isInitialized()}`);
-        
+
+
         Kakao.Auth.authorize({
             redirectUri: "http://localhost:3000/oauth"
         });
-        
-    //     Kakao.Auth.createLoginButton({
-    //         container: '#kakao-login-btn',
-    //         success: function(authObj) {
-    //       // 로그인 성공시, API를 호출합니다.
-    //          window.Kakao.API.request({
-    //             url: '/v2/user/me',
-    //             success: function(res) {
-    //               alert(`login success !${JSON.stringify(res)}`);
-    //               console.log(res);
-    //         },
-    //         fail: function(error) {
-    //           alert(JSON.stringify(error));
-    //         }
-    //       });
-    //     },
-    //     fail: function(err) {
-    //       alert(JSON.stringify(err));
-    //     }
-    //   })
 
-       
 
-        
-    
-        // Kakao.Auth.login({
+        //  Kakao.Auth.login({
         //     success: (authObj) => {
         //         fetch('https://kauth.kakao.com/oauth/token', {
         //             method: "POST",
@@ -76,8 +54,27 @@ const LoginPage = () => {
         // })
         
         
-           
-    
+    //     Kakao.Auth.createLoginButton({
+    //         container: '#kakao-login-btn',
+    //         success: function(authObj) {
+    //       // 로그인 성공시, API를 호출합니다.
+    //          window.Kakao.API.request({
+    //             url: '/v2/user/me',
+    //             success: function(res) {
+    //               alert(`login success !${JSON.stringify(res)}`);
+    //               console.log(res);
+    //         },
+    //         fail: function(error) {
+    //           alert(JSON.stringify(error));
+    //         }
+    //       });
+    //     },
+    //     fail: function(err) {
+    //       alert(JSON.stringify(err));
+    //     }
+    //   })
+
+
         
     }    
 

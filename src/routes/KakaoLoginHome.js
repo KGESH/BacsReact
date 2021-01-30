@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import HomeMain from "../Home/HomeMain";
 import HomeStatistics from "../Home/HomeStatistics";
 import HomeDetail from "../Home/HomeDetail";
@@ -25,24 +25,37 @@ import request from "request-promise";
 const KakaoLoginHome = () => {
 
     const location = useLocation();
+    const history = useHistory();
     //const code = qs.parse(location.search)
-    const kakaoAuthCode = qs.parse(location.search)
+    const kakaoAuthCode = qs.parse(location.search).code
+
+    const urlParams = new URLSearchParams({
+        'grant_type': "authorization_code",
+        'client_id': "2c1780d585d8cfa407d1f83c7d948898", 
+        'redirect_uri': "http://localhost:3000/oauth",
+        'code': kakaoAuthCode
+    });
+    
+
 
     if (kakaoAuthCode) {
-        console.log(`kakao page auth code = ${kakaoAuthCode.code}`);
+        
+        console.log(`kakao page auth code = ${kakaoAuthCode}`);
 
-        fetch('https://kauth.kakao.com/oauth/token',{ 
+        fetch(`https://kauth.kakao.com/oauth/token`, { 
             method: 'POST',
-            grant_type: "authorization_code",
-            client_id: "2c1780d585d8cfa407d1f83c7d948898", 
-            redirect_uri: "http://localhost:3000/oauth",
-            code: kakaoAuthCode
+            headers: {'Content-type': 'application/x-www-form-urlencoded;charset=utf-8'},
+            body: urlParams
         })
         .then(res => {
             console.log("token value is ===");
-            console.log(res);
+            const token = res.json().access_token;
+            console.log(token);
+            //console.log(token.PromiseResult);
+            //localStorage.setItem("kakaoToken",res.body.access_token);
         })
-
+    
+        
         // const kakaoAuth = firebaseInstance.httpsCallable(GetKakaoToken(kakaoAuthCode));
         // kakaoAuth({code: kakaoAuth})
         // .then((result) => {
