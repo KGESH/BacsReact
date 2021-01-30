@@ -25,7 +25,7 @@ const LoginPage = () => {
 
 
         Kakao.Auth.authorize({
-            redirectUri: "http://localhost:3000/oauth"
+            redirectUri: "http://localhost:5000/oauth"
         });
 
 

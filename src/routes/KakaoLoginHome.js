@@ -11,29 +11,19 @@ import { firebaseInstance } from "../FireBase";
 import request from "request-promise";
 
 
-// const GetKakaoToken = (kakaoAuthCode) => {
-//     console.log(`Get Kakao Token. Code :`);
-//     console.log(kakaoAuthCode);
-//     return request({
-//         method: 'POST',
-//         headers: {"Content-type": "application/x-www-form-urlencoded;charset=utf-8", "grant_type": "authorization_code", "client_id": "2c1780d585d8cfa407d1f83c7d948898", "redirect_uri": "http://localhost:3000/oauth", "code": kakaoAuthCode},
-
-//     })
-    
-// }
 
 const KakaoLoginHome = () => {
 
     const location = useLocation();
     const history = useHistory();
-    //const code = qs.parse(location.search)
     const kakaoAuthCode = qs.parse(location.search).code
+    //const code = qs.parse(location.search)
 
     const urlParams = new URLSearchParams({
-        'grant_type': "authorization_code",
-        'client_id': "2c1780d585d8cfa407d1f83c7d948898", 
-        'redirect_uri': "http://localhost:3000/oauth",
-        'code': kakaoAuthCode
+        grant_type: "authorization_code",
+        client_id: "2c1780d585d8cfa407d1f83c7d948898", 
+        redirect_uri: "http://localhost:5000/oauth",
+        code: kakaoAuthCode
     });
     
 
@@ -47,25 +37,21 @@ const KakaoLoginHome = () => {
             headers: {'Content-type': 'application/x-www-form-urlencoded;charset=utf-8'},
             body: urlParams
         })
-        .then(res => {
-            console.log("token value is ===");
-            const token = res.json().access_token;
-            console.log(token);
-            //console.log(token.PromiseResult);
-            //localStorage.setItem("kakaoToken",res.body.access_token);
+        .then(res => res.json())
+        .then(result => {
+            console.log(`token : ${result.access_token}`);
+            localStorage.setItem("kakaoToken", result.access_token);
+
+            const kakaoAuth = firebaseInstance.httpsCallable('kakaoCustomAuth');
+            kakaoAuth({access_token: localStorage.getItem("kakaoToken")})
+            .then((result) => {
+                console.log(result);
+        //         const kakaoToken = result.data.kakao_token;
+        //         const fireToken = result.data.firebase_token;
+            });
         })
     
         
-        // const kakaoAuth = firebaseInstance.httpsCallable(GetKakaoToken(kakaoAuthCode));
-        // kakaoAuth({code: kakaoAuth})
-        // .then((result) => {
-        //     console.log(result);
-
-
-            // const kakaoToken = result.data.kakao_token;
-            // const fireToken = result.data.firebase_token;
-       // })
-
     }
 
     return (
