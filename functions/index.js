@@ -1,8 +1,8 @@
-const request = require("request-promise");
+//const requestPromise = require("request-promise");
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 
-const serviceAccount = require("./serviceAccount.json");
+const serviceAccount = require("./service_acount.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -13,7 +13,7 @@ const kakaoRequestMeUrl = "https://kapi.kakao.com/v2/user/me";
 
 const requestMe = (kakaoAccessToken) => {
   console.log("requesting user profile from kakao api server.");
-  return request({
+  return requestPromise({
     method: "GET",
     headers: {Authorization: "Bearer" + kakaoAccessToken},
     url: kakaoRequestMeUrl,
@@ -87,7 +87,7 @@ const createFirebaseToken = (kakaoAccessToken) => {
     });
 };
 
-exports.kakaoCustomAuth = functions.https.onRequest((req, res) => {
+exports.kakaoCustomAuth = functions.region("us-central1").https.onRequest((req, res) => {
   console.log("Kakao request :");
   console.log(req);
   const token = req.body.access_token;
@@ -102,4 +102,8 @@ exports.kakaoCustomAuth = functions.https.onRequest((req, res) => {
   });
 
   return;
+});
+
+exports.Func = functions.region("us-central1").https.onCall((req, res) => {
+
 });

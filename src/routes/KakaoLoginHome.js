@@ -45,6 +45,7 @@ const KakaoLoginHome = () => {
             const kakaoAuth = firebaseInstance.httpsCallable('kakaoCustomAuth');
             kakaoAuth({access_token: localStorage.getItem("kakaoToken")})
             .then((result) => {
+                console.log("result is = ");
                 console.log(result);
         //         const kakaoToken = result.data.kakao_token;
         //         const fireToken = result.data.firebase_token;
