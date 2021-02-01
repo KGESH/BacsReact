@@ -22,6 +22,7 @@ const KakaoLoginHome = () => {
     const urlParams = new URLSearchParams({
         grant_type: "authorization_code",
         client_id: "2c1780d585d8cfa407d1f83c7d948898", 
+        //redirect_uri: "https://massive-woods-302507.web.app/oauth",
         redirect_uri: "http://localhost:5000/oauth",
         code: kakaoAuthCode
     });
@@ -47,8 +48,13 @@ const KakaoLoginHome = () => {
             .then((result) => {
                 console.log("result is = ");
                 console.log(result);
-        //         const kakaoToken = result.data.kakao_token;
-        //         const fireToken = result.data.firebase_token;
+         //        const kakaoToken = result.data.kakao_token;
+                const fireToken = result.firebase_token;
+                console.log(fireToken);
+
+            })
+            .catch((error) => {
+                console.log(error);
             });
         })
     

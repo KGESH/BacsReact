@@ -1,4 +1,4 @@
-//const requestPromise = require("request-promise");
+//const request= require("request-promise");
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 
@@ -11,12 +11,26 @@ admin.initializeApp({
 
 const kakaoRequestMeUrl = "https://kapi.kakao.com/v2/user/me";
 
+// const requestMe = (kakaoAccessToken) => {
+//   console.log("requesting user profile from kakao api server.");
+//   return request({
+//     method: "GET",
+//     headers: {Authorization: "Bearer" + kakaoAccessToken},
+//     url: kakaoRequestMeUrl,
+//   });
+// };
+
 const requestMe = (kakaoAccessToken) => {
-  console.log("requesting user profile from kakao api server.");
-  return requestPromise({
+  fetch("https://kapi.kakao.com/v2/user/me", {
     method: "GET",
     headers: {Authorization: "Bearer" + kakaoAccessToken},
-    url: kakaoRequestMeUrl,
+  })
+  .then(res => res.json())
+  .then((result) => {
+    return result;
+  })
+  .catch((error) => {
+    console.log(error);
   });
 };
 
@@ -59,6 +73,8 @@ const updateOrCreateUser = (userId, email, displayName, photoURL) => {
 const createFirebaseToken = (kakaoAccessToken) => {
   return requestMe(kakaoAccessToken)
     .then((response) => {
+      console.log("kakao user response : ");
+      console.log(response);
       const body = JSON.parse(response);
       console.log(body);
       const userId = `kakao:${body.id}`;
@@ -87,23 +103,40 @@ const createFirebaseToken = (kakaoAccessToken) => {
     });
 };
 
-exports.kakaoCustomAuth = functions.region("us-central1").https.onRequest((req, res) => {
-  console.log("Kakao request :");
-  console.log(req);
-  const token = req.body.access_token;
-  if (!token) {
-    return res.status(400).send({ error: "there is no token." });
-  }
 
-  console.log(`Verifying Kakao token : ${token}`);
-  createFirebaseToken(token).then((firebaseToken) => {
-    console.log(`Returning firebase token to user : ${firebaseToken}`);
-    res.send({ firebase_token: firebaseToken });
+exports.kakaoCustomAuth = functions.https.onCall((req) => {
+    console.log("Kakao request :");
+    console.log(req);
+    const token = req.access_token;
+    // if (!token) {
+    //   return res.status(400).send({ error: "there is no token." });
+    // }
+  
+    console.log(`Verifying Kakao token : ${token}`);
+
+    
+    createFirebaseToken(token).then((firebaseToken) => {
+      console.log(`Returning firebase token to user : ${firebaseToken}`);
+    });
+  
+      return ({ firebase_token: firebaseToken });
+      
   });
+  
 
-  return;
-});
+// exports.kakaoCustomAuth = functions.https.onRequest((req, res) => {
+//   console.log("Kakao request :");
+//   console.log(req);
+//   const token = req.body.access_token;
+//   if (!token) {
+//     return res.status(400).send({ error: "there is no token." });
+//   }
 
-exports.Func = functions.region("us-central1").https.onCall((req, res) => {
+//   console.log(`Verifying Kakao token : ${token}`);
+//   createFirebaseToken(token).then((firebaseToken) => {
+//     console.log(`Returning firebase token to user : ${firebaseToken}`);
+//     res.send({ firebase_token: firebaseToken });
+//   });
 
-});
+//   return;
+// });

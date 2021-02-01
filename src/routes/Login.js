@@ -25,7 +25,9 @@ const LoginPage = () => {
 
 
         Kakao.Auth.authorize({
+            //redirectUri: "https://massive-woods-302507.web.app/oauth"
             redirectUri: "http://localhost:5000/oauth"
+
         });
 
 
