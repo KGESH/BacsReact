@@ -14,6 +14,8 @@ import request from "request-promise";
 
 const KakaoLoginHome = () => {
 
+    const { Kakao } = window;
+    let kakaoToken = null;
     const location = useLocation();
     const history = useHistory();
     const kakaoAuthCode = qs.parse(location.search).code
@@ -22,8 +24,8 @@ const KakaoLoginHome = () => {
     const urlParams = new URLSearchParams({
         grant_type: "authorization_code",
         client_id: "2c1780d585d8cfa407d1f83c7d948898", 
-        //redirect_uri: "https://massive-woods-302507.web.app/oauth",
-        redirect_uri: "http://localhost:5000/oauth",
+        redirect_uri: "https://massive-woods-302507.web.app/oauth",
+        //redirect_uri: "http://localhost:5000/oauth",
         code: kakaoAuthCode
     });
     
@@ -32,6 +34,8 @@ const KakaoLoginHome = () => {
     if (kakaoAuthCode) {
         
         console.log(`kakao page auth code = ${kakaoAuthCode}`);
+
+        
 
         fetch(`https://kauth.kakao.com/oauth/token`, { 
             method: 'POST',
@@ -48,19 +52,30 @@ const KakaoLoginHome = () => {
             .then((result) => {
                 console.log("result is = ");
                 console.log(result);
-         //        const kakaoToken = result.data.kakao_token;
-                const fireToken = result.firebase_token;
-                console.log(fireToken);
+                console.log("kakao token is = ");
+                //kakaoToken = result.data.token;
+                //console.log(kakaoToken);
+                // console.log("Fire token is = ");
+                // const fireToken = result.data.firebase_token;
+                // console.log(fireToken);
 
+                //console.log(fireToken);
+                //const fireToken = result.firebase_token;
+                //console.log(fireToken);
             })
             .catch((error) => {
+                console.log("error!!@!#@!");
                 console.log(error);
             });
-        })
+        });
+
+        
+
+        
     
         
     }
-
+    
     return (
         <div className="home">
                         <HomeMain />

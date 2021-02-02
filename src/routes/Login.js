@@ -25,30 +25,44 @@ const LoginPage = () => {
 
 
         Kakao.Auth.authorize({
-            //redirectUri: "https://massive-woods-302507.web.app/oauth"
-            redirectUri: "http://localhost:5000/oauth"
+            redirectUri: "https://massive-woods-302507.web.app/oauth"
+            //redirectUri: "http://localhost:5000/oauth"
 
         });
 
+        
 
-        //  Kakao.Auth.login({
+
+        // Kakao.Auth.login({
         //     success: (authObj) => {
-        //         fetch('https://kauth.kakao.com/oauth/token', {
-        //             method: "POST",
-        //             body: JSON.stringify({
-        //                 access_token: authObj.access_token,
-        //             }),
-        //         })
-    
-        //         .then(res=> res.json())
-        //         .then(res => {
-        //             console.log("then token val : " + res.access_token);
-        //             localStorage.setItem("Kakao_token", res.access_token);
-        //             if (res.access_token) {
-        //                 alert("카카오 로그인 성공!")
-        //                 history.push("/oauth");
+
+        //         Kakao.API.request({
+        //             url: "/v2/user/me",
+        //             success: (res) => {
+        //                 console.log("success! data = ");
+        //                 console.log(res);
+        //             },
+        //             fail: (error) => {
+        //                 console.log("err! data = ");
+        //                 console.log(error);
         //             }
-        //         })
+        //         });
+        //         // fetch('https://kauth.kakao.com/oauth/token', {
+        //         //     method: "POST",
+        //         //     body: JSON.stringify({
+        //         //         access_token: authObj.access_token,
+        //         //     }),
+        //         // })
+    
+        //         // .then(res=> res.json())
+        //         // .then(res => {
+        //         //     console.log("then token val : " + res.access_token);
+        //         //     localStorage.setItem("Kakao_token", res.access_token);
+        //         //     if (res.access_token) {
+        //         //         alert("카카오 로그인 성공!")
+        //         //         history.push("/oauth");
+        //         //     }
+        //         // })
         //     },
         //     fail: (err) => {
         //         alert(JSON.stringify(err))
