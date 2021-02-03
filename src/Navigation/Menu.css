@@ -6,10 +6,15 @@
 
 .nav__link_text {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 .nav__mobile_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__pc_wrapper {
   display: flex;
   justify-content: space-between;
 }
@@ -22,6 +27,10 @@
   padding-top: 9px;
 }
 
-.nav__homeLogo {
+.nav__mobile_homeLogo {
   padding-top: 9px;
+}
+
+.nav__pc_homeLogo {
+  padding-top: 18px;
 }

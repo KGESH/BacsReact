@@ -25,7 +25,11 @@
 .loginPage__kakao_button,
 .loginPage__naver_button,
 .loginPage__email_button {
-  width: 100%;
   padding-bottom: 15px;
   
+}
+
+.loginPage__button_img {
+  width: 100%;
+  height: auto;
 }

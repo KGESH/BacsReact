@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "massive-woods-302507",
+  "private_key_id": "3c6c9f9360a331946018ea0e93c4ebaa07921c64",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCphTQS64LqDW6U\nIbQnsvTS0smgj4iUJogijnMWZkS0g8eXnTgbW0FN2bEAU6z9N5oQQ4sXnv4pmhAV\n4EFVzO2bda+ctG09jW2zOP/tvwn/hzPR0TX7rt/6j231XB4mM9opi1rWZM2LRbPW\nN97TQHE/e93VuIP0eFmI4uCgcg5u3xymRY9rtDahNn6Yc1LySWAiF/x0Lm7z9lGD\nV2LMx6FlBMJdKHMVAFNE2QEDBipVZc5UO937ckShMRJXKfD3FiqusMZpG9X/DuLB\nGvSzmUTtUj87FQdFsHaISdO7K9L2Fa/Jqv3ijcED1o7lZRnWtIuM/w86CnK/H8By\nURRoPcn/AgMBAAECggEACjiZWLCxjooryiu0EJa2M0X5WUB+RCyElczP/KBC8T1m\n2enlWaTpbZe8F+BztDrXg7aG2vA/s+Nxp9gDKHi4NODmK0UntwfhfuZna/7STAFr\navG51wiGwbVHNH2O5c/Hjiy0V+vxBr43pylsOoGOsny19e5vqlxdTaccUyA9ZYre\nLResUUkgsZlon/WlLJrNMrMJuLM8b8+WoDC+FI46Gz0fvBWQd/FP0W2PPkdQRFwN\nHWlRGwji7LLQ7POdtdviSL0TdNITpKZph9GRIxx9jFYPqrwyLx35DBHeQ1eN27aM\n8+Ys1xSdEpth5vcMvXfIsDCfVEiYzvXg/3h+l2IYqQKBgQDXgL0IVV6VgsERyNQv\nL1VoRxRzoGlrH9cGOo0Gajn3d4HvBiXQeTieGNlwCR7okGTQBBE9NFMgn1B0B/hv\nieirIeNq0KuRryyA4TPt3r/veB+X9q27kJ+SaeZPnTYdoX/yMoM+KISifSGXyM9S\nyXTaERuTFjxI2Rgzgmc+4mGQhwKBgQDJYF5LGTiTC7qiRIJ2o2+4qD0y37FgRkXQ\nLHzcH2po8zrJJ7KOjpP98WAV7TOi1uV+XTmoPN6ug2aFpB/fmAb5Vr9qkU9br1eZ\nm4wirXvF78whTc5oOZtkU5VIPdibTTzYF0rxwcfONdM4MteN0AZhYNpZUuB1qViA\ns9NI4aYwyQKBgBL6ACtasSCDShMR1zVsep3bHH7uEjpfrGSdBUwaUI5tFKECrpPE\nCOtLDuKhuvoJtQboRMhZ8jP+M2x0Qzk3MKjZLBh81Y7XmRikPBlnMwmYT1fnXfcV\nTifrcV9zXY+QaB7gudPgZ4WTdUDTawZEPSjytrXmEFrt2wa2JfdQofzDAoGBAJu/\n7S4oU5lnePIICt+3iLFJbgvq90V/FH/t6KRXp/WEKfNqwK+BlvTRu3859rX7f4Q8\nlluIuLJA7wpt5jkJXFt8vI+v07EV7Krho4EurIxq63bWts3lwEnYW52EOAPluSlo\n2o4hUmgrOTI+IHmOa2Dlh/uOHgzi7ZCdhMzZubABAoGBAIvFpSwNGITM4luE4quZ\nOgg1wieaL1dAuBZlY88bpjh1SKkvRYvEFyL4C/bKhUV8JXEcVxAfTKaLpC33HHVq\nQNgLGTkH+pfdIeOweSQDPEXGDUl7Fqm+8dRQWSkeTgWNMNA8R+emAI/IlncounUz\ny8xFjFyVuxwtZEE5UH2OOBj3\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-bpibo@massive-woods-302507.iam.gserviceaccount.com",
+  "client_id": "101000018863339820575",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-bpibo%40massive-woods-302507.iam.gserviceaccount.com"
+}
