@@ -7,8 +7,7 @@ import HomeDetail from "../Home/HomeDetail";
 import HomeSubscribe from "../Home/HomeSubscribe";
 import HomeSample from "../Home/HomeSample";
 import * as qs from 'query-string';
-import { firebaseInstance } from "../FireBase";
-import request from "request-promise";
+import { firebaseInstance, auth } from "../FireBase";
 
 
 
@@ -16,10 +15,10 @@ const KakaoLoginHome = () => {
 
     const { Kakao } = window;
     let kakaoToken = null;
+    let fireToken = null;
     const location = useLocation();
     const history = useHistory();
     const kakaoAuthCode = qs.parse(location.search).code
-    //const code = qs.parse(location.search)
 
     const urlParams = new URLSearchParams({
         grant_type: "authorization_code",
@@ -30,12 +29,8 @@ const KakaoLoginHome = () => {
     });
     
 
-
-    if (kakaoAuthCode) {
-        
+    if (kakaoAuthCode) {        
         console.log(`kakao page auth code = ${kakaoAuthCode}`);
-
-        
 
         fetch(`https://kauth.kakao.com/oauth/token`, { 
             method: 'POST',
@@ -52,16 +47,20 @@ const KakaoLoginHome = () => {
             .then((result) => {
                 console.log("result is = ");
                 console.log(result);
-                console.log("kakao token is = ");
-                //kakaoToken = result.data.token;
-                //console.log(kakaoToken);
-                // console.log("Fire token is = ");
-                // const fireToken = result.data.firebase_token;
-                // console.log(fireToken);
+                console.log("Fire token is = ");
+                fireToken = result.data;
+                console.log(fireToken);
 
-                //console.log(fireToken);
-                //const fireToken = result.firebase_token;
-                //console.log(fireToken);
+                auth.signInWithCustomToken(fireToken)
+                .then((user) => {
+                    console.log(user)
+                })
+                .catch((error) => {
+                    console.log(`firebase custom token auth error!!@`);
+                    console.log(error.code);
+                    console.log(error.message);
+                })
+
             })
             .catch((error) => {
                 console.log("error!!@!#@!");
