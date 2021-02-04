@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
-import { auth, database } from "../FireBase";
+import { auth, database, firestore } from "../FireBase";
+import { writeUserData } from "../CreateUserData";
 
 const EmailSignUp = () => {
+
+    const history = useHistory();
     
     const [UserId, setId] = useState("");
     const [Name, setName] = useState("");
@@ -34,19 +37,6 @@ const EmailSignUp = () => {
     }
 
 
-    const writeUserData = (userId, email, name, phoneNumber, mainAddress , subAddress) => {
-        database.ref("users/" + userId).set({
-            userName: name,
-            email: email,
-            userId: userId,
-            address: {"main" : mainAddress, "sub": subAddress},
-            phoneNumber: phoneNumber,
-            cart: {},
-            subscribe: {},
-        }); 
-    }
-
-    
     const OnSignUpButtonClick = (event) => {
         
         event.preventDefault();
@@ -60,6 +50,16 @@ const EmailSignUp = () => {
             console.log(Age);
             console.log(Address);
             console.log("sign up success!");
+            writeUserData({
+                userId: UserId,
+                name: Name,
+                email: Email,
+                phoneNumber: "010-5318-4949",
+                age: Age,
+                address: Address,
+
+            });
+            history.push("/");
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -69,7 +69,6 @@ const EmailSignUp = () => {
             console.log(errorMessage);
         })
 
-        writeUserData(UserId, Email, Name, "010-1234-1234", "seoul", "misung122");
     }
 
     return (

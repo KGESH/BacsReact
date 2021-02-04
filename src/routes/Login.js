@@ -12,86 +12,20 @@ import "./Login.css";
 
 
 const LoginPage = () => {
-    
-
 
     const history = useHistory();
 
     const OnKakaoButtonClick = () => {
     
         const { Kakao } = window;
-        Kakao.init('1b080fda72ac152ebeeea5ad36adad42');
+        Kakao.init('ebaaf325637b20ae7519bd8d770f8f70');
         console.log(`카카오 인증 : ${Kakao.isInitialized()}`);
 
 
         Kakao.Auth.authorize({
             redirectUri: "https://massive-woods-302507.web.app/oauth"
             //redirectUri: "http://localhost:5000/oauth"
-
         });
-
-        
-
-
-        // Kakao.Auth.login({
-        //     success: (authObj) => {
-
-        //         Kakao.API.request({
-        //             url: "/v2/user/me",
-        //             success: (res) => {
-        //                 console.log("success! data = ");
-        //                 console.log(res);
-        //             },
-        //             fail: (error) => {
-        //                 console.log("err! data = ");
-        //                 console.log(error);
-        //             }
-        //         });
-        //         // fetch('https://kauth.kakao.com/oauth/token', {
-        //         //     method: "POST",
-        //         //     body: JSON.stringify({
-        //         //         access_token: authObj.access_token,
-        //         //     }),
-        //         // })
-    
-        //         // .then(res=> res.json())
-        //         // .then(res => {
-        //         //     console.log("then token val : " + res.access_token);
-        //         //     localStorage.setItem("Kakao_token", res.access_token);
-        //         //     if (res.access_token) {
-        //         //         alert("카카오 로그인 성공!")
-        //         //         history.push("/oauth");
-        //         //     }
-        //         // })
-        //     },
-        //     fail: (err) => {
-        //         alert(JSON.stringify(err))
-        //     },
-        // })
-        
-        
-    //     Kakao.Auth.createLoginButton({
-    //         container: '#kakao-login-btn',
-    //         success: function(authObj) {
-    //       // 로그인 성공시, API를 호출합니다.
-    //          window.Kakao.API.request({
-    //             url: '/v2/user/me',
-    //             success: function(res) {
-    //               alert(`login success !${JSON.stringify(res)}`);
-    //               console.log(res);
-    //         },
-    //         fail: function(error) {
-    //           alert(JSON.stringify(error));
-    //         }
-    //       });
-    //     },
-    //     fail: function(err) {
-    //       alert(JSON.stringify(err));
-    //     }
-    //   })
-
-
-        
     }    
 
     return (

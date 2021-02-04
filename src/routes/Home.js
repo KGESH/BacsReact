@@ -7,43 +7,18 @@ import HomeDetail from "../Home/HomeDetail";
 import HomeSubscribe from "../Home/HomeSubscribe";
 import HomeSample from "../Home/HomeSample";
 
-class Home extends React.Component {
-    state = {
-        isLoading : true
-    };
 
-    LoadingPage() {
-        this.setState({isLoading : false });
-    }
+const Home = () => {
 
-    componentDidMount() {
-        this.LoadingPage();
-    }
-
-    render() {
-        const { isLoading } = this.state;
-        return (
-            <section className="contanier">
-                { isLoading ? (
-                    <div className="loader">
-                        <span className="loader__text">Loading...</span>
-                    </div>
-                ) : (
-                    <div className="home">
-                        <HomeMain />
-                        <HomeStatistics />
-                        <HomeDetail />
-                        <HomeSubscribe />
-                        <HomeSample />
-                    </div>
-                    
-                )}
-            </section>
-        )
-    }
-
-
+    return (
+        <div className="home">
+            <HomeMain />
+            <HomeStatistics />
+            <HomeDetail />
+            <HomeSubscribe />
+            <HomeSample />
+        </div>
+    );
 }
-
 
 export default Home;
