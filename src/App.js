@@ -10,6 +10,7 @@ import LoginPage from './routes/Login';
 import EmailLogin from "./routes/EmailLogin";
 import EmailSignUp from "./routes/EmailSignUp";
 import KakaoLoginHome from "./routes/KakaoLoginHome";
+import SubscribeTest from "./routes/SubscribeTest";
 
 
 
@@ -26,6 +27,7 @@ function App() {
     <Route path="/FAQ" component={FAQ}/>
     <Route path="/Login" component={LoginPage}/>
     <Route path="/EmailSignUp" component={EmailSignUp}/>
+    <Route path="/SubscribeTest" component={SubscribeTest}/>
 
     <Footer />
   </BrowserRouter>
