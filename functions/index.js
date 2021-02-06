@@ -39,19 +39,6 @@ exports.kakaoPayRequest = functions.https.onCall((data) => {
   orderData.append("approval_url", "https://massive-woods-302507.web.app/Story");
   orderData.append("cancel_url", "https://massive-woods-302507.web.app/Business");
   orderData.append("fail_url", "https://massive-woods-302507.web.app/FAQ");
-  
-  // orderData.append({
-  //   cid: "TC0ONETIME",
-  //   partner_order_id: "partner_order_id",
-  //   partner_user_id: data.uid,
-  //   item_name: data.coffeeType,
-  //   quantity: data.beansQuantity,
-  //   total_amount: data.beansPrice,
-  //   tax_free_amount: 0,
-  //   approval_url: "https://massive-woods-302507.web.app/Story",
-  //   cancel_url: "https://massive-woods-302507.web.app/Business",
-  //   fail_url: "https://massive-woods-302507.web.app/FAQ"
-  // });
 
 
   return fetch("https://kapi.kakao.com/v1/payment/ready", {
@@ -62,19 +49,6 @@ exports.kakaoPayRequest = functions.https.onCall((data) => {
 
       },
     body: orderData
-    // form: {
-    //   "cid": "TC0ONETIME",
-    //   "partner_order_id": data.orderId,
-    //   "partner_user_id": data.uid,
-    //   "item_name": data.coffeeType,
-    //   "quantity": data.beansQuantity,
-    //   "total_amount": data.beansPrice,
-    //   "tax_free_amount": 0,
-    //   "approval_url": "https://massive-woods-302507.web.app/Story",
-    //   "cancel_url": "https://massive-woods-302507.web.app/Business",
-    //   "fail_url": "https://massive-woods-302507.web.app/FAQ"
-    //}
-
   })
   .then(respone => respone.json())
   .then((res) => {

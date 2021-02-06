@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import { firebaseInstance } from "../FireBase";
+import { isMobile } from "react-device-detect";
 
 const SubscribeTest = () => {
     
 
+    const history = useHistory();
     const [coffeeType, setCoffeeType] = useState("coffeeBeans");
     const [beansPrice, setBeansPrice] = useState(22000);
     const [beansQuantitiy, setbeansQuantitiy] = useState(2);
@@ -22,6 +25,8 @@ const SubscribeTest = () => {
         })
         .then(res => {
             console.log(res);
+            isMobile ? window.open(res.data.next_redirect_mobile_url) 
+            : window.open(res.data.next_redirect_pc_url);
         })
         .catch((error) => {
             console.log("client receive pay error!" + error);
