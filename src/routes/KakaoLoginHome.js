@@ -50,11 +50,13 @@ const KakaoLoginHome = () => {
                 console.log("Fire token is = ");
                 fireToken = result.data;
                 console.log(fireToken);
-
+                
                 auth.signInWithCustomToken(fireToken)
                 .then((user) => {
                     console.log(user)
-                    //history.push("/");
+                    history.push("/");
+                    
+                    
                 })
                 .catch((error) => {
                     console.log(`firebase custom token auth error!!@`);

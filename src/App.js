@@ -16,10 +16,12 @@ import SubscribeTest from "./routes/SubscribeTest";
 
 function App() {
 
+  
 
   return <BrowserRouter>
     
-    <Header />
+    <Header />  {/***  Navigation Bar ***/}
+    
     <Route path="/" exact={true} component={Home}/>
     <Route path="/oauth" component={KakaoLoginHome} />
     <Route path="/Story" component={Story}/>

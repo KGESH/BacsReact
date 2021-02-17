@@ -7,8 +7,18 @@ import HomeDetail from "../Home/HomeDetail";
 import HomeSubscribe from "../Home/HomeSubscribe";
 import HomeSample from "../Home/HomeSample";
 
+import { auth } from "../FireBase";
 
 const Home = () => {
+
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            console.log("login user = ");
+            console.log(user);
+        } else {
+            console.log("No user Login");
+        }
+    })
 
     return (
         <div className="home">
