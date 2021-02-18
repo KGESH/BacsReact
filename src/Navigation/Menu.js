@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { MenuItems, NavCustomerItems , TempMenuItems } from "./MenuItems";
 import mobileHomeLogo from "../Bacs_Images/home_logo.svg";
 import pcHomeLogo from "../Bacs_Images/home_logo.svg";
@@ -8,6 +8,7 @@ import { AppBar, Toolbar, List, ListItem, ListItemText, Container, Hidden } from
 import { createMuiTheme, makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import grey from "@material-ui/core/colors/grey"
+import { auth } from "../FireBase";
 
 import MenuDrawer from "./MenuDrawer";
 import "./Menu.css";
@@ -26,7 +27,7 @@ const mobileMaxWidth = 768;
 
 
 const Menu = ({isLoggedIn}) => {
-    
+    const history = useHistory();
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const handleResize = (e) => setWindowWidth(window.innerWidth);
 
@@ -52,9 +53,8 @@ const Menu = ({isLoggedIn}) => {
                         
                     ) : (
                         
-                        <Container >
+                        <Container>
                             <div className="nav__pc_wrapper">
-
                                 <Link to="/" className="nav__link_home">
                                     <img className="nav__pc_homeLogo" src={pcHomeLogo} alt="Home"/>
                                 </Link>
@@ -77,13 +77,35 @@ const Menu = ({isLoggedIn}) => {
                                     ))}
                                 </List>
                                 <List component="nav__customer_menu" aria-labelledby="nav customer" className="nav__menu_list">
-                                    {NavCustomerItems.map(({title, url}) => (
+                                    {isLoggedIn ? (
+                                        <Link className="nav__link_text" onClick={() => {
+                                            auth.signOut();
+                                            history.push("/");
+                                        }}>
+                                            <ListItem button>
+                                                <ListItemText primary="로그아웃" />
+                                            </ListItem>
+                                        </Link>
+                                    ) : (
+                                        <Link to="/Login" className="nav__link_text">
+                                            <ListItem button>
+                                                <ListItemText primary="로그인" />
+                                            </ListItem>
+                                        </Link>
+                                    )}
+                                    <Link to="/Cart" className="nav__link_text">
+                                        <ListItem button>
+                                            <ListItemText primary="장바구니" />
+                                        </ListItem>
+                                    </Link>
+
+                                    {/* {NavCustomerItems.map(({title, url}) => (
                                             <Link to={url} key={title} className="nav__link_text">
                                                 <ListItem button>
                                                     <ListItemText primary={title} />
                                                 </ListItem>
                                             </Link>
-                                    ))}
+                                    ))} */}
                                 </List>
                             </div>
                         </Container>

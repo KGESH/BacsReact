@@ -43,20 +43,20 @@ const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems, isLoggedIn}) =>
                 ))}
                 <div className="menu__login_wrapper">
                     {isLoggedIn ? (
-                        <Link to="/" className="nav-links">
+                        <Link to="/" className={classes.linkText}>
                             <ListItem button>
                                 <ListItemText primary="로그아웃" />
                             </ListItem>
                         </Link>
                     ) : (
-                        <Link to="/Login" className="nav-links">
+                        <Link to="/Login" className={classes.linkText}>
                             <ListItem button>
                                 <ListItemText primary="로그인" />
                             </ListItem>
                         </Link>
                     )}
 
-                    <Link to="/Cart" className="nav-links">
+                    <Link to="/Cart" className={classes.linkText}>
                         <ListItem button>
                             <ListItemText primary="장바구니" />
                         </ListItem>
