@@ -6,6 +6,11 @@ export const MenuItems = [
         className: "nav-links"
     },
     {
+        title: "선물하기",
+        url: "https://smartstore.naver.com/cafeclara",
+        className: "nav-links"
+    },
+    {
         title: "박스이야기",
         url: "Story",
         className: "nav-links"
@@ -29,6 +34,11 @@ export const NavCustomerItems = [
         className: "nav-links"
     },
     {
+        title: "로그아웃",
+        url: "/",
+        className: "nav-links"
+    },
+    {
         title: "장바구니",
         url: "Cart",
         className: "nav-links" 
@@ -37,9 +47,5 @@ export const NavCustomerItems = [
 
 export const TempMenuItems = [
 
-    {
-        title: "선물하기",
-        url: "https://smartstore.naver.com/cafeclara",
-        className: "nav-links"
-    }
+    
 ]

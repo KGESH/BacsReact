@@ -11,15 +11,6 @@ import { auth } from "../FireBase";
 
 const Home = () => {
 
-    auth.onAuthStateChanged((user) => {
-        if (user) {
-            console.log("login user = ");
-            console.log(user);
-        } else {
-            console.log("No user Login");
-        }
-    })
-
     return (
         <div className="home">
             <HomeMain />

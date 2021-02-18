@@ -25,7 +25,7 @@ const theme = createMuiTheme({
 const mobileMaxWidth = 768;
 
 
-const Menu = () => {
+const Menu = ({isLoggedIn}) => {
     
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const handleResize = (e) => setWindowWidth(window.innerWidth);
@@ -40,7 +40,7 @@ const Menu = () => {
                     {(windowWidth < mobileMaxWidth) ? (
                         <Container >
                             <div className="nav__mobile_wrapper">
-                            <MenuDrawer TempMenuItems={TempMenuItems} MenuItems={MenuItems} NavCustomerItems={NavCustomerItems}/>
+                            <MenuDrawer TempMenuItems={TempMenuItems} MenuItems={MenuItems} NavCustomerItems={NavCustomerItems} isLoggedIn={isLoggedIn}/>
                             <Link to="/" className="nav__link_home">
                                 <img className="nav__mobile_homeLogo" src={mobileHomeLogo} alt="Home"/>
                             </Link>
@@ -60,7 +60,8 @@ const Menu = () => {
                                 </Link>
 
                                 <List component="nav" aria-labelledby="main navigation" className="nav__menu_list">
-                                    {TempMenuItems.map(({title, url}) => (
+                                    {/*** 구독하기, 선물하기 페이지 제작 전까지 임시 페이지로 쓸 네비게이션 아이템***/}
+                                    {TempMenuItems.map(({title, url}) => (  
                                         <a href={url} key={title} className="nav__link_text">
                                             <ListItem button> 
                                                 <ListItemText primary={title} />
@@ -74,7 +75,7 @@ const Menu = () => {
                                             </ListItem>
                                         </Link>
                                     ))}
-                                </List> 
+                                </List>
                                 <List component="nav__customer_menu" aria-labelledby="nav customer" className="nav__menu_list">
                                     {NavCustomerItems.map(({title, url}) => (
                                             <Link to={url} key={title} className="nav__link_text">
@@ -82,10 +83,10 @@ const Menu = () => {
                                                     <ListItemText primary={title} />
                                                 </ListItem>
                                             </Link>
-                                        ))}
+                                    ))}
                                 </List>
                             </div>
-                            </Container>
+                        </Container>
                     )}
                 </Toolbar>
             </AppBar>

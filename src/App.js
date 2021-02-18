@@ -1,38 +1,34 @@
-import React, { useCallback, useEffect } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import Home from "./routes/Home";
-import Story from "./routes/Story";
-import FAQ from "./routes/Faq";
-import Business from "./routes/Business"
-import Header from "./Header";
-import Footer from "./Footer/Footer";
-import LoginPage from './routes/Login';
-import EmailLogin from "./routes/EmailLogin";
-import EmailSignUp from "./routes/EmailSignUp";
-import KakaoLoginHome from "./routes/KakaoLoginHome";
-import SubscribeTest from "./routes/SubscribeTest";
+import React, { useCallback, useEffect, useState } from "react";
+import AppRouter from "./Router";
+import { auth } from './FireBase';
 
 
 
-function App() {
+const App = () => {
 
-  
+  const [isInit, setInit] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  return <BrowserRouter>
-    
-    <Header />  {/***  Navigation Bar ***/}
-    
-    <Route path="/" exact={true} component={Home}/>
-    <Route path="/oauth" component={KakaoLoginHome} />
-    <Route path="/Story" component={Story}/>
-    <Route path="/Business" component={Business}/>
-    <Route path="/FAQ" component={FAQ}/>
-    <Route path="/Login" component={LoginPage}/>
-    <Route path="/EmailSignUp" component={EmailSignUp}/>
-    <Route path="/SubscribeTest" component={SubscribeTest}/>
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+        console.log(user);
+      } else {
+        setIsLoggedIn(false);
+        console.log("LogOut!");
 
-    <Footer />
-  </BrowserRouter>
+      }
+      setInit(true);
+      console.log("App init");
+    });
+  }, []);
+
+  return (
+    <>
+      {isInit ? <AppRouter isLoggedIn={isLoggedIn} /> : "Initializing..."}
+    </>
+  )
 }
 
 export default App;

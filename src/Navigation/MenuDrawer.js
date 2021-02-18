@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     }
 })
 
-const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems}) => {
+const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems, isLoggedIn}) => {
     const classes = useStyles();
     const [state, setState] = useState({ top: false })
 
@@ -34,13 +34,6 @@ const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems}) => {
     const MenuDrawerList = anchor => (
         <div className={classes.list} role="presentation" onClick={toggleDrawer(anchor, false)} onKeyDown={toggleDrawer(anchor, false)}>
             <List component="nav">
-                {TempMenuItems.map(({title, url}) => (
-                    <a href={url} key={title} className={classes.linkText}>
-                        <ListItem button>
-                            <ListItemText primary={title} />
-                        </ListItem>
-                    </a>
-                ))}
                 {MenuItems.map(({title, url}) => (
                     <Link to={url} key={title} className={classes.linkText}>
                         <ListItem button>
@@ -49,13 +42,36 @@ const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems}) => {
                     </Link>
                 ))}
                 <div className="menu__login_wrapper">
-                    {NavCustomerItems.map(({title, url}) => (
+                    {isLoggedIn ? (
+                        <Link to="/" className="nav-links">
+                            <ListItem button>
+                                <ListItemText primary="로그아웃" />
+                            </ListItem>
+                        </Link>
+                    ) : (
+                        <Link to="/Login" className="nav-links">
+                            <ListItem button>
+                                <ListItemText primary="로그인" />
+                            </ListItem>
+                        </Link>
+                    )}
+
+                    <Link to="/Cart" className="nav-links">
+                        <ListItem button>
+                            <ListItemText primary="장바구니" />
+                        </ListItem>
+                    </Link>
+
+
+
+
+                    {/* {NavCustomerItems.map(({title, url}) => (
                         <Link to={url} key={title} className={classes.linkText}>
                             <ListItem button>
                                 <ListItemText primary={title} />
                             </ListItem>
                         </Link>
-                    ))}
+                    ))} */}
                 </div>
             </List>
             {/*<List component="nav">
