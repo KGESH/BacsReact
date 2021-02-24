@@ -4,6 +4,7 @@ import { isMobile } from "react-device-detect";
 import TrialMain from "../TrialComponent/TrialMain";
 import TrialDetail from "../TrialComponent/TrialDetail";
 import TrialDescription from "../TrialComponent/TrialDescription";
+import TrialFlavor from "../TrialComponent/TrialFlavor";
 
 
 const Trial = () => {
@@ -14,6 +15,7 @@ const Trial = () => {
             <TrialMain/>
             <TrialDetail/>
             <TrialDescription/>
+            <TrialFlavor/>
         </div>
     );
 
