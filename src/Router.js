@@ -11,6 +11,8 @@ import EmailLogin from "./routes/EmailLogin";
 import EmailSignUp from "./routes/EmailSignUp";
 import KakaoLoginHome from "./routes/KakaoLoginHome";
 import SubscribeTest from "./routes/SubscribeTest";
+import Trial from "./routes/Trial";
+
 
 const AppRouter = ({isLoggedIn}) => {
     console.log("is loggedIn : ");
@@ -35,6 +37,7 @@ const AppRouter = ({isLoggedIn}) => {
             <Route path="/Login" component={LoginPage}/>
             <Route path="/EmailSignUp" component={EmailSignUp}/>
             <Route path="/SubscribeTest" component={SubscribeTest}/>
+            <Route path="/Trial" component={Trial}/>
             
             <Footer />
         </Router>

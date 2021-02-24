@@ -1,0 +1,49 @@
+.section__trial_description {
+    text-align: center;
+    background-color: #F5F5F5;
+}
+
+.trial__description_text_wrapper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.trial__description_title{
+    color: #4e4e4e;
+    font-size: 25px;
+    font-family: "AppleSDGothicNeoL";
+}
+.trial__description_subtitle{
+    color: #4e4e4e;
+    font-size: 15px;
+    font-family: "AppleSDGothicNeoL";
+}
+
+.trial__description_plankit_text{
+    color: black;
+    font-size: 13px;
+    font-family: "AppleSDGothicNeoL";
+    padding-bottom: 50px;
+}
+.trial__description_detail_wrapper {
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.trial__description_detail_title{
+    color: #4E4E4E;
+    font-size: 22px;
+    font-family: "AppleSDGothicNeoL";
+}
+.trial__description_detail{
+    color: #4E4E4E;
+    font-size: 12px;
+    font-family: "AppleSDGothicNeoL";
+}
+
+
+.trial__description_img{
+    width: 30%;
+    height: auto;
+    padding-bottom: 25px;
+}

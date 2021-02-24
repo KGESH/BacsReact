@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { IconButton, List, ListItem, ListItemText, Drawer } from "@material-ui/core";
 import hamburgerLogo from "../Bacs_Images/hamburger_menu.svg";
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import "./MenuDrawer.css";
+import { auth } from "../FireBase";
 
 
 const useStyles = makeStyles({
@@ -20,6 +21,7 @@ const useStyles = makeStyles({
 const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems, isLoggedIn}) => {
     const classes = useStyles();
     const [state, setState] = useState({ top: false })
+    const history = useHistory();
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (
@@ -43,7 +45,10 @@ const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems, isLoggedIn}) =>
                 ))}
                 <div className="menu__login_wrapper">
                     {isLoggedIn ? (
-                        <Link to="/" className={classes.linkText}>
+                        <Link to="/" className={classes.linkText} onClick={() => {
+                            auth.signOut();
+                            history.push("/");
+                        }}>
                             <ListItem button>
                                 <ListItemText primary="로그아웃" />
                             </ListItem>
