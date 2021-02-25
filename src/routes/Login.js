@@ -29,30 +29,30 @@ const LoginPage = () => {
     }    
 
     return (
-        <section className="loginPage__contanier">
-            <div className="loginPage__text_wrapper">
-                <span className="loginPage__title">간편 로그인 및 회원가입</span>
-                <span className="loginPage__detail">을<br/>시작하세요.</span>
+        <section className="loginpage__contanier">
+            <div className="loginpage__text_wrapper">
+                <span className="loginpage__title">간편 로그인 및 회원가입</span>
+                <span className="loginpage__detail">을<br/>시작하세요.</span>
             </div>
 
-            <div className="loginPage_button_wrapper">
+            <div className="loginpage_button_wrapper">
                 {/*    
-            <Link to="/SignUpFromKakao" className="loginPage__kakao_button"></Link>
+            <Link to="/SignUpFromKakao" className="loginpage__kakao_button"></Link>
                 */}
                 {/* <Button onClick={OnKakaoButtonClick} >
-                    <img className="loginPage__button_img" src={kakaoButton} />
+                    <img className="loginpage__button_img" src={kakaoButton} />
                 </Button> */}
 
                 <Button onClick={OnKakaoButtonClick} id="kakao-login-btn" >
-                    <img className="loginPage__button_img" src={kakaoButton} />
+                    <img className="loginpage__button_img" src={kakaoButton} />
                 </Button>
                 
                     
-                <Link to="/SignUpFromNaver" className="loginPage__naver_button" type="button">
-                    <img className="loginPage__button_img" src={naverButton} />
+                <Link to="/SignUpFromNaver" className="loginpage__naver_button" type="button">
+                    <img className="loginpage__button_img" src={naverButton} />
                 </Link>
-                <Link to="/EmailSignUp" className="loginPage__email_button" type="button">
-                    <img className="loginPage__button_img" src={emailButton} />
+                <Link to="/EmailSignUp" className="loginpage__email_button" type="button">
+                    <img className="loginpage__button_img" src={emailButton} />
                 </Link>
             </div>
             

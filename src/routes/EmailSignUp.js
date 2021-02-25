@@ -71,14 +71,15 @@ const EmailSignUp = () => {
 
     }
 
+
     return (
-        <form className="loginForm">
-            <input className="idInput" onChange={OnChangeIdHandler} placeholder="input id plz"/>
-            <input type="password" className="passwordInput" onChange={OnChangePasswordHandler} placeholder="input pw plz"/>
-            <input type="password" className="passwordConfirmInput" onChange={OnChangePasswordHandler} placeholder="confirm pw plz"/>
-            <input className="nameInput" onChange={OnChangeNameHandler} placeholder="input Name plz"/>
-            <input type="email" className="emailInput" onChange={OnChangeEmailHandler} placeholder="input email plz" />
-            <button className="inputBtn" onClick={OnSignUpButtonClick}>sign up</button>
+        <form className="login_form">
+            <input className="id_input" onChange={OnChangeIdHandler} placeholder="input id plz"/>
+            <input type="password" className="password_input" onChange={OnChangePasswordHandler} placeholder="input pw plz"/>
+            <input type="password" className="password_confirm_input" onChange={OnChangePasswordHandler} placeholder="confirm pw plz"/>
+            <input className="name_input" onChange={OnChangeNameHandler} placeholder="input Name plz"/>
+            <input type="email" className="email_input" onChange={OnChangeEmailHandler} placeholder="input email plz" />
+            <button className="input_button" onClick={OnSignUpButtonClick}>sign up</button>
         </form>
 
     );

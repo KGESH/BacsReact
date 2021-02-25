@@ -10,7 +10,7 @@ function Faq() {
                         <source src={videoSource} type="video/mp4"/>
                         your browser does not support the video tag
                     </video>
-                <h2 className="section__title">무엇을 도와드릴까요~~</h2>
+                <h2 className=" faq__title">무엇을 도와드릴까요~~</h2>
                 
                 </section>
             </div>

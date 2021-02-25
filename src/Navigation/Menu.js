@@ -43,10 +43,10 @@ const Menu = ({isLoggedIn}) => {
                             <div className="nav__mobile_wrapper">
                             <MenuDrawer TempMenuItems={TempMenuItems} MenuItems={MenuItems} NavCustomerItems={NavCustomerItems} isLoggedIn={isLoggedIn}/>
                             <Link to="/" className="nav__link_home">
-                                <img className="nav__mobile_homeLogo" src={mobileHomeLogo} alt="Home"/>
+                                <img className="nav__mobile_home_logo" src={mobileHomeLogo} alt="Home"/>
                             </Link>
                             <Link to="/Cart" className="nav__link_cart">
-                                <img className="nav__cartLogo" src={cartLogo} alt="Cart"/>
+                                <img className="nav__cart_logo" src={cartLogo} alt="Cart"/>
                             </Link>
                             </div>
                         </Container>
@@ -56,7 +56,7 @@ const Menu = ({isLoggedIn}) => {
                         <Container>
                             <div className="nav__pc_wrapper">
                                 <Link to="/" className="nav__link_home">
-                                    <img className="nav__pc_homeLogo" src={pcHomeLogo} alt="Home"/>
+                                    <img className="nav__pc_home_logo" src={pcHomeLogo} alt="Home"/>
                                 </Link>
 
                                 <List component="nav" aria-labelledby="main navigation" className="nav__menu_list">
