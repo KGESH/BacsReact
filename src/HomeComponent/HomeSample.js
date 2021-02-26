@@ -10,11 +10,14 @@ const HomeSample = () => {
             <div className="home__sample_title1">첫 잔은 무료로</div>
             <div className="home__sample_title2">박스 샘플 패키지</div>
             <div className="sample__button_wrapper">
-                <Link to="/trial" className="home__trialButton" type="button">
+                <Link to="/trial" type="button">   
+                {/* 버튼 제작 필요.*/}
+                {/*className="home__trial_button"*/}
+                {/*className 위처럼 적용시 css문제 발생"*/}
                     <img src={homeSampleTrialButton} />
                 </Link>
             </div>
-            <section className="section_sample_detail">
+            <section className="section__sample_detail">
 
             <img className="home__sample_img" src={homeSampleImg}/>
             <div className="home__sample_detail_wrapper">

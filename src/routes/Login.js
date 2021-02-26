@@ -12,113 +12,47 @@ import "./Login.css";
 
 
 const LoginPage = () => {
-    
-
 
     const history = useHistory();
 
     const OnKakaoButtonClick = () => {
     
         const { Kakao } = window;
-        Kakao.init('1b080fda72ac152ebeeea5ad36adad42');
+        Kakao.init('ebaaf325637b20ae7519bd8d770f8f70');
         console.log(`카카오 인증 : ${Kakao.isInitialized()}`);
 
 
         Kakao.Auth.authorize({
             redirectUri: "https://massive-woods-302507.web.app/oauth"
             //redirectUri: "http://localhost:5000/oauth"
-
         });
-
-        
-
-
-        // Kakao.Auth.login({
-        //     success: (authObj) => {
-
-        //         Kakao.API.request({
-        //             url: "/v2/user/me",
-        //             success: (res) => {
-        //                 console.log("success! data = ");
-        //                 console.log(res);
-        //             },
-        //             fail: (error) => {
-        //                 console.log("err! data = ");
-        //                 console.log(error);
-        //             }
-        //         });
-        //         // fetch('https://kauth.kakao.com/oauth/token', {
-        //         //     method: "POST",
-        //         //     body: JSON.stringify({
-        //         //         access_token: authObj.access_token,
-        //         //     }),
-        //         // })
-    
-        //         // .then(res=> res.json())
-        //         // .then(res => {
-        //         //     console.log("then token val : " + res.access_token);
-        //         //     localStorage.setItem("Kakao_token", res.access_token);
-        //         //     if (res.access_token) {
-        //         //         alert("카카오 로그인 성공!")
-        //         //         history.push("/oauth");
-        //         //     }
-        //         // })
-        //     },
-        //     fail: (err) => {
-        //         alert(JSON.stringify(err))
-        //     },
-        // })
-        
-        
-    //     Kakao.Auth.createLoginButton({
-    //         container: '#kakao-login-btn',
-    //         success: function(authObj) {
-    //       // 로그인 성공시, API를 호출합니다.
-    //          window.Kakao.API.request({
-    //             url: '/v2/user/me',
-    //             success: function(res) {
-    //               alert(`login success !${JSON.stringify(res)}`);
-    //               console.log(res);
-    //         },
-    //         fail: function(error) {
-    //           alert(JSON.stringify(error));
-    //         }
-    //       });
-    //     },
-    //     fail: function(err) {
-    //       alert(JSON.stringify(err));
-    //     }
-    //   })
-
-
-        
     }    
 
     return (
-        <section className="loginPage__contanier">
-            <div className="loginPage__text_wrapper">
-                <span className="loginPage__title">간편 로그인 및 회원가입</span>
-                <span className="loginPage__detail">을<br/>시작하세요.</span>
+        <section className="loginpage__contanier">
+            <div className="loginpage__text_wrapper">
+                <span className="loginpage__title">간편 로그인 및 회원가입</span>
+                <span className="loginpage__detail">을<br/>시작하세요.</span>
             </div>
 
-            <div className="loginPage_button_wrapper">
+            <div className="loginpage_button_wrapper">
                 {/*    
-            <Link to="/SignUpFromKakao" className="loginPage__kakao_button"></Link>
+            <Link to="/SignUpFromKakao" className="loginpage__kakao_button"></Link>
                 */}
                 {/* <Button onClick={OnKakaoButtonClick} >
-                    <img className="loginPage__button_img" src={kakaoButton} />
+                    <img className="loginpage__button_img" src={kakaoButton} />
                 </Button> */}
 
                 <Button onClick={OnKakaoButtonClick} id="kakao-login-btn" >
-                    <img className="loginPage__button_img" src={kakaoButton} />
+                    <img className="loginpage__button_img" src={kakaoButton} />
                 </Button>
                 
                     
-                <Link to="/SignUpFromNaver" className="loginPage__naver_button" type="button">
-                    <img className="loginPage__button_img" src={naverButton} />
+                <Link to="/SignUpFromNaver" className="loginpage__naver_button" type="button">
+                    <img className="loginpage__button_img" src={naverButton} />
                 </Link>
-                <Link to="/EmailSignUp" className="loginPage__email_button" type="button">
-                    <img className="loginPage__button_img" src={emailButton} />
+                <Link to="/EmailSignUp" className="loginpage__email_button" type="button">
+                    <img className="loginpage__button_img" src={emailButton} />
                 </Link>
             </div>
             

@@ -1,0 +1,14 @@
+.section__trial_flavor {
+    text-align: center;
+}
+
+
+.trial__flavor_description_wrapper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.trial__flavor_img {
+    width: 30%;
+    height: auto;
+}

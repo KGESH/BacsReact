@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { IconButton, List, ListItem, ListItemText, Drawer } from "@material-ui/core";
 import hamburgerLogo from "../Bacs_Images/hamburger_menu.svg";
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import "./MenuDrawer.css";
+import { auth } from "../FireBase";
 
 
 const useStyles = makeStyles({
@@ -17,9 +18,10 @@ const useStyles = makeStyles({
     }
 })
 
-const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems}) => {
+const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems, isLoggedIn}) => {
     const classes = useStyles();
     const [state, setState] = useState({ top: false })
+    const history = useHistory();
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (
@@ -34,13 +36,6 @@ const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems}) => {
     const MenuDrawerList = anchor => (
         <div className={classes.list} role="presentation" onClick={toggleDrawer(anchor, false)} onKeyDown={toggleDrawer(anchor, false)}>
             <List component="nav">
-                {TempMenuItems.map(({title, url}) => (
-                    <a href={url} key={title} className={classes.linkText}>
-                        <ListItem button>
-                            <ListItemText primary={title} />
-                        </ListItem>
-                    </a>
-                ))}
                 {MenuItems.map(({title, url}) => (
                     <Link to={url} key={title} className={classes.linkText}>
                         <ListItem button>
@@ -49,13 +44,39 @@ const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems}) => {
                     </Link>
                 ))}
                 <div className="menu__login_wrapper">
-                    {NavCustomerItems.map(({title, url}) => (
+                    {isLoggedIn ? (
+                        <Link to="/" className={classes.linkText} onClick={() => {
+                            auth.signOut();
+                            history.push("/");
+                        }}>
+                            <ListItem button>
+                                <ListItemText primary="로그아웃" />
+                            </ListItem>
+                        </Link>
+                    ) : (
+                        <Link to="/Login" className={classes.linkText}>
+                            <ListItem button>
+                                <ListItemText primary="로그인" />
+                            </ListItem>
+                        </Link>
+                    )}
+
+                    <Link to="/Cart" className={classes.linkText}>
+                        <ListItem button>
+                            <ListItemText primary="장바구니" />
+                        </ListItem>
+                    </Link>
+
+
+
+
+                    {/* {NavCustomerItems.map(({title, url}) => (
                         <Link to={url} key={title} className={classes.linkText}>
                             <ListItem button>
                                 <ListItemText primary={title} />
                             </ListItem>
                         </Link>
-                    ))}
+                    ))} */}
                 </div>
             </List>
             {/*<List component="nav">
@@ -71,7 +92,7 @@ const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems}) => {
     return (
         <React.Fragment>                
                 <IconButton edge="start" aria-label="menu" onClick={toggleDrawer("top", true)}>
-                    <img className="nav__menuLogo" src= {hamburgerLogo} alt="Menu"/>
+                    <img className="nav__menu_logo" src= {hamburgerLogo} alt="Menu"/>
                 </IconButton>
                 <Drawer anchor="top" open={state.top} onOpen={toggleDrawer("top", true)} onClose={toggleDrawer("top", false)}>
                     {MenuDrawerList("top")}

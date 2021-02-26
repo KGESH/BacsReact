@@ -1,8 +1,9 @@
-const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const serviceAccount = require("./service_acount.json");
+const kakaoLogin = require("./KakaoLogin");
+const functions = require("firebase-functions");
 const fetch = require("node-fetch");
-const kakaoRequestMeUrl = "https://kapi.kakao.com/v2/user/me";
+
 
 
 admin.initializeApp({
@@ -10,96 +11,6 @@ admin.initializeApp({
   databaseURL: "https://massive-woods-302507-default-rtdb.firebaseio.com/",
 });
 
-
-const requestMe = (kakaoAccessToken) => {
-  return fetch(kakaoRequestMeUrl, {
-    method: "GET",
-    headers: {
-      Authorization: "Bearer " + kakaoAccessToken,
-    }
-  })
-  .then(res => res.json())
-  .then((result) => {
-    console.log("request me result : ");
-    console.log(result);
-    return result;
-  })
-  .catch((error) => {
-    console.log("request me error : ");
-    console.log(error);
-    return error;
-  });
-};
-
-
-const updateOrCreateUser = (userId, email, displayName, photoURL) => {
-  console.log("updating or creating a firebase user");
-
-  const updateParams = {
-    provider: "KAKAO",
-    displayName: displayName,
-  };
-
-  if (displayName) {
-    updateParams["displayName"] = displayName;
-  } else {
-    updateParams["displayName"] = email;
-  }
-
-  if (photoURL) {
-    updateParams["photoURL"] = photoURL;
-  }
-  console.log(updateParams);
-
-  return admin
-    .auth()
-    .updateUser(userId, updateParams)
-    .catch((error) => {
-
-      if (error.code === "auth/user-not-found") {
-        updateParams["uid"] = userId;
-
-        if (email) {
-          updateParams["email"] = email;
-        }
-
-        return admin.auth().createUser(updateParams);
-      }
-      throw error;
-    });
-};
-
-
-const createFirebaseToken = (kakaoAccessToken) => {
-  return requestMe(kakaoAccessToken)
-    .then((response) => {
-      console.log("kakao user response : ");
-      console.log(response);
-      const userId = `kakao:${response.id}`;
-      if (!userId) {
-        return response
-          .status(404)
-          .send({message: "there was no user with the given access token."});
-      }
-      let nickname = null;
-      let profileImage = null;
-      if (response.properties) {
-        nickname = response.properties.nickname;
-        profileImage = response.properties.profile_image;
-      }
-      return updateOrCreateUser(
-        userId,
-        response.kakao_account.email,
-        nickname,
-        profileImage
-      );
-    })
-    .then((userRecord) => {
-      const userId = userRecord.uid;
-      console.log(`creating a custom firebase token based on uid ${userId}`);
-      return admin.auth().createCustomToken(userId, { provider: "KAKAO" });
-    });
-};
 
 
 exports.kakaoCustomAuth = functions.https.onCall((data) => {
@@ -109,6 +20,46 @@ exports.kakaoCustomAuth = functions.https.onCall((data) => {
       return { error: "there is not token." };
     }
 
-  return createFirebaseToken(token);
+  return kakaoLogin.createFirebaseToken(token);
 });
 
+
+exports.kakaoPayRequest = functions.https.onCall((data) => {
+
+  console.log("Pay client from Reuqest:");
+  console.log(data);
+  const orderData = new URLSearchParams();
+  orderData.append("cid", "TC0ONETIME");
+  orderData.append("partner_order_id", "partner_order_id");
+  orderData.append("partner_user_id", data.uid);
+  orderData.append("item_name", "BacsTest");
+  orderData.append("quantity", data.beansQuantity);
+  orderData.append("total_amount", data.beansPrice);
+  orderData.append("tax_free_amount", 0);
+  orderData.append("approval_url", "https://massive-woods-302507.web.app/Story");
+  orderData.append("cancel_url", "https://massive-woods-302507.web.app/Business");
+  orderData.append("fail_url", "https://massive-woods-302507.web.app/FAQ");
+
+
+  return fetch("https://kapi.kakao.com/v1/payment/ready", {
+    method: "POST",
+    headers: {
+      "Authorization": "KakaoAK " + "4ced7ea586975a9f11310b35f5b406fa",
+      'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+
+      },
+    body: orderData
+  })
+  .then(respone => respone.json())
+  .then((res) => {
+    console.log(res);
+    return res;
+  })
+  .catch((error) => {
+    console.log("Kakao Pay Error#@!" + error);
+    return error;
+  });
+
+
+
+})

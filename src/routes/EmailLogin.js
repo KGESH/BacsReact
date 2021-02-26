@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import { firestore, auth, database } from "../FireBase";
 
 
 
 const EmailLogin = () => {
+
+    const history = useHistory();
 
     const [Name, setName] = useState("");
     const [Email, setEmail] = useState("");

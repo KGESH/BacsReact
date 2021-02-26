@@ -15,9 +15,9 @@ const HomeDetail = () => {
             <div className="home__detail_text_normal">그 본질에 집중했습니다.<br/><br/></div>
             <div className="home__detail_text_normal">선택의 어려움을 줄이고,<br/>행복을 담아 선물합니다.</div>
             <br/>
-            <Link to="/Story" className="home__storyLink">BACS 이야기 &#62;</Link> {/*** &#62; == '>' ***/}
+            <Link to="/Story" className="home__story_link">BACS 이야기 &#62;</Link> {/*** &#62; == '>' ***/}
             <div><br/><br/></div>   {/*** white space ***/}
-        </section>
+        </section>  
     );
 
 }

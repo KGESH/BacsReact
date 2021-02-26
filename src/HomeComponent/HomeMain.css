@@ -5,13 +5,13 @@
   background-size: cover;
 }
 
-.home__title_firstLine {
+.home__title_first_line {
   color: #4e4e4e;
   font-size: 20px;
   font-family: "AppleSDGothicNeoL";
 }
 
-.home__title_secondLine {
+.home__title_second_line {
   color: #ff9319;
   font-size: 28px;
   font-family: "AppleSDGothicNeoM";
@@ -25,12 +25,9 @@
   padding-bottom: 6px;
 }
 
-.home__trialButton3 {
+.home__trial_button {
   border-radius: 6px;
   border: 1px solid gray;
-  background-color: orange;
-  color: white;
-  padding: 5px;
 }
 
 .home__main_img {

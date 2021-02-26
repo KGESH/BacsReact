@@ -6,8 +6,7 @@ function Stroy() {
         <section className="contanier">
             <div className="story">
                 <section className="section__story">
-                <h2 className="section__title">Story</h2>
-                <h4 className="section__text">대충 우리들의 이야기</h4>
+                <h2 className="story__title">Story</h2>
                 </section>
             </div>
 
