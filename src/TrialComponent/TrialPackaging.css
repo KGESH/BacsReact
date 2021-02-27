@@ -3,7 +3,22 @@
 }
 
 
-.trial__packaging_review_img{
-    width: 30%;
+.trial__packaging_review_img {
+    width: 100%;
     height: auto;
 }   
+
+.trial__flavor_subscribe_button {
+    border: white;
+}
+.trial__flavor_store_button {
+    border: white;
+}
+.tiral__flavor_subscribe_button_img {
+    width: 100%;
+    height: auto;
+}
+.trial__packaging_button_wrapper {
+    display: flex;
+    flex-direction: column;
+}

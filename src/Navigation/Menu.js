@@ -13,7 +13,7 @@ import MenuDrawer from "./MenuDrawer";
 import "./Menu.css";
 import { Debounce } from "./Debounce";
 import _ from "lodash";
-import Headroom from "react-headroom";
+import Headroom from "react-headroom"; /* scroll navbar library */
 
 
 
@@ -72,7 +72,7 @@ const Menu = ({isLoggedIn}) => {
     
 
     return(
-        <Headroom>
+        <Headroom>  {/* scroll navbar library */}
             <ThemeProvider theme={theme}>
                 <AppBar position="static" className="nav__wrapper">
                     <Toolbar>

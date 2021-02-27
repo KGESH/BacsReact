@@ -90,14 +90,14 @@ const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems, isLoggedIn}) =>
 
 
     return (
-        <React.Fragment>                
+        <>                
                 <IconButton edge="start" aria-label="menu" onClick={toggleDrawer("top", true)}>
                     <img className="nav__menu_logo" src= {hamburgerLogo} alt="Menu"/>
                 </IconButton>
                 <Drawer anchor="top" open={state.top} onOpen={toggleDrawer("top", true)} onClose={toggleDrawer("top", false)}>
                     {MenuDrawerList("top")}
                 </Drawer>
-        </React.Fragment>
+        </>
     )
 }
 
