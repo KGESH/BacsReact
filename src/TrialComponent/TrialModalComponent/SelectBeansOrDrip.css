@@ -1,0 +1,25 @@
+.section__trial_modal {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.trial__modal_beans_wrapper {
+    width: 50%;
+    height: auto;
+}
+
+.trial__modal_drip_wrapper {
+    width: 50%;
+    height: auto;
+}
+
+.trial__modal_beans_img {
+    width: 100%;
+    height: auto;
+}
+
+.trial__modal_drip_img {
+    width: 100%;
+    height: auto;
+}
