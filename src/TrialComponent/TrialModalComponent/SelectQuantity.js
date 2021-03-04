@@ -26,7 +26,6 @@ const SelectQuantity = ({coffeeType, handleQuantity}) => {
             </section>
         )
     );
-
 }
 
 export default SelectQuantity;
