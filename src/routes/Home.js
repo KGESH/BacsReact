@@ -9,13 +9,13 @@ import HomeSample from "../HomeComponent/HomeSample";
 const Home = () => {
 
     return (
-        <div className="home">
+        <>
             <HomeMain />
             <HomeStatistics />
             <HomeDetail />
             <HomeSubscribe />
             <HomeSample />
-        </div>
+        </>
     );
 }
 

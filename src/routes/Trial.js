@@ -12,13 +12,13 @@ const Trial = () => {
 
     
     return (
-        <div className="trial">
+        <>
             <TrialMain/>
             <TrialDetail/>
             <TrialDescription/>
             <TrialFlavor/>
             <TrialPackaging/>
-        </div>
+        </>
     );
 
 }

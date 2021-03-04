@@ -23,13 +23,13 @@ const LoginPage = () => {
 
 
         Kakao.Auth.authorize({
-            redirectUri: "https://massive-woods-302507.web.app/oauth"
-            //redirectUri: "http://localhost:5000/oauth"
+            //redirectUri: "https://massive-woods-302507.web.app/oauth"
+            redirectUri: "http://localhost:5000/oauth"
         });
     }    
 
     return (
-        <section className="loginpage__contanier">
+        <>
             <div className="loginpage__text_wrapper">
                 <span className="loginpage__title">간편 로그인 및 회원가입</span>
                 <span className="loginpage__detail">을<br/>시작하세요.</span>
@@ -57,7 +57,7 @@ const LoginPage = () => {
             </div>
             
             
-        </section>
+        </>
     );
 }
 
