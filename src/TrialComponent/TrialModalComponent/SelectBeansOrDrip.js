@@ -3,26 +3,22 @@ import "./SelectBeansOrDrip.css"
 import beansImg from "../../Bacs_Images/home_detail.jpg";
 import dirpBagImg from "../../Bacs_Images/home.png";
 
-const SelectBeansOrDrip = ({handleCoffeeType, handleModalState}) => {
+const SelectBeansOrDrip = (props) => {
     const BEANS = "coffeeBeans";
     const DRIP_BAG = "coffeeDripBag";
-    const SELECT_COUNT = "selectCount";
+    const MODAL_STATE_SELECT_COUNT = "selectCount";
     const [coffeeType, setCoffeeType] = useState("");
 
     useEffect(() => {
         // 초기값 null 넘어옴
-        if (coffeeType === BEANS) {
-            console.log(`select beans : ${coffeeType}`);
-            handleCoffeeType(coffeeType);
-            handleModalState(SELECT_COUNT);
-        } else if (coffeeType === DRIP_BAG) {
-            console.log(`select drip : ${coffeeType}`);
-            handleCoffeeType(coffeeType);
-            handleModalState(SELECT_COUNT);
-
+        if (coffeeType !== "") {
+            console.log(`select : ${coffeeType}`);
+            props.handleSetCoffeeType(coffeeType);
+            props.handleSetNextModalState(MODAL_STATE_SELECT_COUNT);
         }
-
     }, [coffeeType]);
+
+    
 
 
     

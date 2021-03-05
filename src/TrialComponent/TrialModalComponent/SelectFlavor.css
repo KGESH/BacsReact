@@ -1,0 +1,4 @@
+.section__trial_modal {
+    display: flex;
+    flex-direction: column;
+}

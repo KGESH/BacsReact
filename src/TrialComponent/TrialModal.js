@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import "./TrialModal.css";
 import SelectBeansOrDrip from "./TrialModalComponent/SelectBeansOrDrip";
 import SelectQuantity from "./TrialModalComponent/SelectQuantity";
+import SelectFlavor from "./TrialModalComponent/SelectFlavor";
 
 const modalStyle = {
     content: {
@@ -16,38 +17,48 @@ const modalStyle = {
     }
 }
 
-const TrialModal = ({isOpen, onModalClose}) => {
+const TrialModal = (props) => {
 
-    const SELECT_BEANS_OR_DRIP = "selectBeansOrDrip";
-    const SELECT_COUNT = "selectCount";
+    const MODAL_STATE_SELECT_BEANS_OR_DRIP = "selectBeansOrDrip";
+    const MODAL_STATE_SELECT_COUNT = "selectCount";
+    const MODAL_STATE_SELECT_FLAVOR ="selectFlavor";
 
     const [coffeeType, setCoffeeType] = useState("");
     const [quantity, setQuantity] = useState(0);
-    const [flavorType, setFlavorType] = useState("");
+    const [flavorTypeCount, setFlavorTypeCount] = useState("");
     const [grindingDegree, setGrindingDegree] = useState("");
-    const [modalState, setModalState] = useState(SELECT_BEANS_OR_DRIP);
+    const [modalState, setModalState] = useState(MODAL_STATE_SELECT_BEANS_OR_DRIP);
 
 
 
-    const handleCoffeeType = (coffeeTypes) => {
+    const handleSetCoffeeType = (coffeeTypes) => {
         setCoffeeType(coffeeTypes);
     }
 
-    const handleQuantity = (quantity) => {
+    const handleSetQuantity = (quantity) => {
         setQuantity(quantity);
     }
+    
+    const handleSetFlavorType = (flavorTypeObj) => {
+        setFlavorTypeCount(flavorTypeObj);
+        console.log(`modal total quantity : ${quantity}`);
+    }
 
-    const handleModalState = (modalState) => {
+    const handleSetNextModalState = (modalState) => {
         setModalState(modalState);
     }
 
     const renderSwitch = (modalState) => {
         switch (modalState) {
-            case SELECT_BEANS_OR_DRIP:
-                return <SelectBeansOrDrip handleCoffeeType={handleCoffeeType} handleModalState={handleModalState}/>
+            case MODAL_STATE_SELECT_BEANS_OR_DRIP:
+                return <SelectBeansOrDrip handleSetCoffeeType={handleSetCoffeeType} handleSetNextModalState={handleSetNextModalState}/>
 
-            case SELECT_COUNT:
-                return <SelectQuantity coffeeType={coffeeType} handleQuantity={handleQuantity}/>
+            case MODAL_STATE_SELECT_COUNT:
+                return <SelectQuantity coffeeType={coffeeType} handleSetQuantity={handleSetQuantity} handleSetNextModalState={handleSetNextModalState}/>
+                
+            case MODAL_STATE_SELECT_FLAVOR:
+                return <SelectFlavor handleSetFlavorType={handleSetFlavorType} handleSetNextModalState={handleSetNextModalState}/>
+
 
         
             default:
@@ -60,14 +71,31 @@ const TrialModal = ({isOpen, onModalClose}) => {
     });
 
     useEffect(() => {
-        console.log(`call handle! ${coffeeType}`);
-    }, [coffeeType, quantity]);
+        console.log(`call handle coffee type! ${coffeeType}`);
+        
+    }, [coffeeType]);
+
+    useEffect(() => {
+        console.log(`call handle quantity! ${quantity}`);
+    }, [quantity]);
+
+    useEffect(() => {
+        console.log(`call handle flavorType!`);
+        console.log(flavorTypeCount);
+    }, [flavorTypeCount]);
+
+    useEffect(() => {
+        console.log("current state : ");
+        console.log(coffeeType);
+        console.log(quantity);
+        console.log(flavorTypeCount);
+    }, [modalState]);
 
     return (
         <Modal
             style={modalStyle}
-            isOpen={isOpen}
-            onRequestClose={onModalClose}
+            isOpen={props.isOpen}
+            onRequestClose={props.onModalClose}
         >
 
         {renderSwitch(modalState)}
