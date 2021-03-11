@@ -23,7 +23,7 @@ const SelectBeansOrDrip = (props) => {
 
     
     return (
-        <section className="section__trial_modal">
+        <section className="section__modal_select_beans_or_drip">
             <div className="trial__modal_beans_wrapper">
                 <div className="trial__modal_beans_title">원두 플랜</div>
                 <img className="trial__modal_beans_img" src={beansImg} onClick={() => setCoffeeType(BEANS)} />

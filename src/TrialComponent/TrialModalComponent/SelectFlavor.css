@@ -1,4 +1,24 @@
-.section__trial_modal {
+.section__modal_select_flavor {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+.trial_modal_select_flavor_back_button {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.trial__modal_selected_item_wrapper {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.trial__modal_button_wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.box_item {
+    padding-right: 10px;
 }

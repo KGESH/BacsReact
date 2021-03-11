@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import "./TrialModal.css";
@@ -14,6 +13,8 @@ const modalStyle = {
         bottom: "auto",
         marginRight: "-50%",
         transform: "translate(-50%, -50%)",
+        width: "100%",
+        height: "30%"
     }
 }
 
@@ -57,10 +58,8 @@ const TrialModal = (props) => {
                 return <SelectQuantity coffeeType={coffeeType} handleSetQuantity={handleSetQuantity} handleSetNextModalState={handleSetNextModalState}/>
                 
             case MODAL_STATE_SELECT_FLAVOR:
-                return <SelectFlavor handleSetFlavorType={handleSetFlavorType} handleSetNextModalState={handleSetNextModalState}/>
+                return <SelectFlavor quantity={quantity} handleSetFlavorType={handleSetFlavorType} handleSetNextModalState={handleSetNextModalState}/>
 
-
-        
             default:
                 break;
         }
@@ -99,7 +98,6 @@ const TrialModal = (props) => {
         >
 
         {renderSwitch(modalState)}
-
 
         </Modal>
     );
