@@ -15,8 +15,6 @@ const TrialDescription = () => {
             <div className="trial__description_detail_wrapper">
                 <span className="trial__description_detail">이렇게 진행이 돼요<br/>이렇게 진행이 돼요<br/><br/>이렇게 진행이 돼요<br/>이렇게 진행이 돼요<br/><br/>이렇게 진행이 돼요<br/>이렇게 진행이 돼요<br/><br/></span>
             </div>
-            
-
         </section>
     )
 }

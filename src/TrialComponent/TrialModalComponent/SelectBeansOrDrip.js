@@ -19,9 +19,6 @@ const SelectBeansOrDrip = (props) => {
     }, [coffeeType]);
 
     
-
-
-    
     return (
         <section className="section__modal_select_beans_or_drip">
             <div className="trial__modal_beans_wrapper">
