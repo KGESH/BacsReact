@@ -4,6 +4,7 @@ import "./TrialModal.css";
 import SelectBeansOrDrip from "./TrialModalComponent/SelectBeansOrDrip";
 import SelectQuantity from "./TrialModalComponent/SelectQuantity";
 import SelectFlavor from "./TrialModalComponent/SelectFlavor";
+import { useHistory } from "react-router-dom";
 
 const modalStyle = {
     content: {
@@ -22,13 +23,16 @@ const TrialModal = (props) => {
 
     const MODAL_STATE_SELECT_BEANS_OR_DRIP = "selectBeansOrDrip";
     const MODAL_STATE_SELECT_COUNT = "selectCount";
-    const MODAL_STATE_SELECT_FLAVOR ="selectFlavor";
+    const MODAL_STATE_SELECT_FLAVOR = "selectFlavor";
+    const MODAL_STATE_SELECT_DONE = "selectDone";
 
+    const history = useHistory();
     const [coffeeType, setCoffeeType] = useState("");
     const [quantity, setQuantity] = useState(0);
     const [flavorTypeCount, setFlavorTypeCount] = useState("");
     const [grindingDegree, setGrindingDegree] = useState("");
     const [modalState, setModalState] = useState(MODAL_STATE_SELECT_BEANS_OR_DRIP);
+    const [beansPrice, setBeansPrice] = useState(0);
 
 
 
@@ -49,6 +53,10 @@ const TrialModal = (props) => {
         setModalState(modalState);
     }
 
+    const handleSetBeansPrice = (beansPrice) => {
+        setBeansPrice(beansPrice);
+    }
+
     const renderSwitch = (modalState) => {
         switch (modalState) {
             case MODAL_STATE_SELECT_BEANS_OR_DRIP:
@@ -58,7 +66,21 @@ const TrialModal = (props) => {
                 return <SelectQuantity coffeeType={coffeeType} handleSetQuantity={handleSetQuantity} handleSetNextModalState={handleSetNextModalState}/>
                 
             case MODAL_STATE_SELECT_FLAVOR:
-                return <SelectFlavor quantity={quantity} handleSetFlavorType={handleSetFlavorType} handleSetNextModalState={handleSetNextModalState}/>
+                return <SelectFlavor quantity={quantity} handleSetFlavorType={handleSetFlavorType} handleSetNextModalState={handleSetNextModalState} handleSetBeansPrice={handleSetBeansPrice}/>
+
+            case MODAL_STATE_SELECT_DONE:
+                history.push({
+                    pathname: "trial-order",
+                    state: {
+                        coffeeType,
+                        quantity,
+                        flavorTypeCount,
+                        grindingDegree,
+                        beansPrice
+                    }
+                });
+                break;
+                
 
             default:
                 break;

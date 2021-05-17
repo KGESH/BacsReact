@@ -26,8 +26,8 @@ const KakaoLoginHome = () => {
     const urlParams = new URLSearchParams({
         grant_type: "authorization_code",
         client_id: "a5425f765fe84a925039fada5e2cd80c", 
-        //redirect_uri: "https://massive-woods-302507.web.app/oauth",
-        redirect_uri: "http://localhost:5000/oauth",
+        redirect_uri: "https://massive-woods-302507.web.app/oauth",
+        //redirect_uri: "http://localhost:5000/oauth",
         code: kakaoAuthCode
     });
 

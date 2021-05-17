@@ -9,6 +9,7 @@ const App = () => {
   const [isInit, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  /***  FireBase Login Checking  ***/
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {

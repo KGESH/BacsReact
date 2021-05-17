@@ -16,20 +16,19 @@ const useStyles = makeStyles({
         textDecoration: `none`,
         color: `black`
     }
-})
+});
 
-const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems, isLoggedIn}) => {
+/***  Mobile NavBar Item Drawer  ***/
+const MenuDrawer = ({MenuItems, isLoggedIn}) => {
     const classes = useStyles();
     const [state, setState] = useState({ top: false })
     const history = useHistory();
 
     const toggleDrawer = (anchor, open) => (event) => {
-        if (
-            event.type === "keydown" &&
-            (event.key === "Tab" || event.key === "Shift")
-        ) {
-            return
-        }
+        if (event.type === "keydown" &&
+            (event.key === "Tab" || event.key === "Shift")) {
+                return;
+            }
         setState({ [anchor]: open })
     }
 
@@ -66,25 +65,8 @@ const MenuDrawer = ({TempMenuItems, MenuItems, NavCustomerItems, isLoggedIn}) =>
                             <ListItemText primary="장바구니" />
                         </ListItem>
                     </Link>
-
-
-
-
-                    {/* {NavCustomerItems.map(({title, url}) => (
-                        <Link to={url} key={title} className={classes.linkText}>
-                            <ListItem button>
-                                <ListItemText primary={title} />
-                            </ListItem>
-                        </Link>
-                    ))} */}
                 </div>
             </List>
-            {/*<List component="nav">
-            </List>
-            <List component="nav">
-                
-            </List>*/}
-            
         </div>
     )
 

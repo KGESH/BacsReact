@@ -3,6 +3,11 @@ import "./SelectFlavor.css";
 
 const SelectFlavor = (props) => {
     const MODAL_STATE_SELECT_COUNT = "selectCount";
+    const MODAL_STATE_SELECT_DONE = "selectDone";
+    const FLAVOR_TYPE_SAVORY = "savory";
+    const FLAVOR_TYPE_SOURY = "soury";
+    const FLAVOR_TYPE_SWEETY = "sweety";
+    const FLAVOR_TYPE_DECAFFEINATED = "decaffeinated";
     const [savoryCount, setSavoryCount] = useState(0);
     const [souryCount, setSouryCount] = useState(0);
     const [sweetyCount, setSweetyCount] = useState(0);
@@ -30,19 +35,19 @@ const SelectFlavor = (props) => {
         setFlavorTotal(flavorTotal + 1);
         
         switch (flavorType) {
-            case "savory":
+            case FLAVOR_TYPE_SAVORY:
                 setSavoryCount(savoryCount + 1);
                 break;
 
-            case "soury":
+            case FLAVOR_TYPE_SOURY:
                 setSouryCount(souryCount + 1);
                 break;
 
-            case "sweety":
+            case FLAVOR_TYPE_SWEETY:
                 setSweetyCount(sweetyCount +1);
                 break;
 
-            case "decaffeinated":
+            case FLAVOR_TYPE_DECAFFEINATED:
                 setDecaffeinatedCount(decaffeinated + 1);
                 break;
                 
@@ -54,8 +59,16 @@ const SelectFlavor = (props) => {
 
     const sendFlavor = () => {
         console.log(flavorTypeObj);
+        if (props.quantity === 3) {
+            props.handleSetBeansPrice(22000);
+        } else {
+            props.handleSetBeansPrice(44000);
+        }
         props.handleSetFlavorType(flavorTypeObj);
+        props.handleSetNextModalState(MODAL_STATE_SELECT_DONE);
     }
+
+    
 
     const handleDeselectItem = (event) => {
         const index = parseInt(event.target.id, 10);
@@ -96,13 +109,11 @@ const SelectFlavor = (props) => {
         <section className="section__modal_select_flavor">
             <button className="trial_modal_select_flavor_back_button" onClick={handlePrevStep}>뒤로가기</button>
 
-
             <div className="trial__modal_selected_item_wrapper">
             {flavorTypeArray.map((data, index) => {
                 return <h4 className="box_item" id={index} key={index} onClick={handleDeselectItem}>{flavorTypeArray[index]}</h4>;
             })}
             </div>
-
             
             <div className="trial__modal_button_wrapper">
                 <button className="savory" onClick={handleSelectItem}>savory</button>
@@ -113,7 +124,6 @@ const SelectFlavor = (props) => {
             </div>
         </section>
     );
-    
 }
 
 export default SelectFlavor;

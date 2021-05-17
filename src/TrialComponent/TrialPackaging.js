@@ -29,8 +29,8 @@ const TrialPackaging = () => {
                 <button className="trial__flavor_subscribe_button" onClick={onModalClick}><img className="tiral__flavor_subscribe_button_img" src={trialButtonImg}/></button>
                 <button className="trial__flavor_store_button">구독말고 커피 선물할래요.</button>
             </div>
-            <TrialModal isOpen={isModalOpen} onModalClose={onModalClick}/> {/*구독 팝업*/}
-
+            {/*구독 팝업*/}
+            <TrialModal isOpen={isModalOpen} onModalClose={onModalClick}/>
         </section>
     );
 }

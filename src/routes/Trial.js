@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
-import { isMobile } from "react-device-detect";
+import React from "react";
 import TrialMain from "../TrialComponent/TrialMain";
 import TrialDetail from "../TrialComponent/TrialDetail";
 import TrialDescription from "../TrialComponent/TrialDescription";
@@ -10,7 +8,6 @@ import TrialPackaging from "../TrialComponent/TrialPackaging";
 
 const Trial = () => {
 
-    
     return (
         <>
             <TrialMain/>

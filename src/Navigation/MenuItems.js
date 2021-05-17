@@ -2,12 +2,13 @@ export const MenuItems = [
     
     {
         title: "구독하기",
-        url: "SubscribeTest",
+        url: "trial",
         className: "nav-links"
     },
     {
         title: "선물하기",
-        url: "https://smartstore.naver.com/cafeclara",
+        /***  url: "https://smartstore.naver.com/cafeclara",  ***/
+        url: "Shop",
         className: "nav-links"
     },
     {
@@ -43,8 +44,4 @@ export const NavCustomerItems = [
         url: "Cart",
         className: "nav-links" 
     }
-]
-
-export const TempMenuItems = [
-    /*need remove*/
 ]

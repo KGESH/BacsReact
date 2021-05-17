@@ -12,22 +12,15 @@ import EmailSignUp from "./routes/EmailSignUp";
 import KakaoLoginHome from "./routes/KakaoLoginHome";
 import SubscribeTest from "./routes/SubscribeTest";
 import Trial from "./routes/Trial";
+import TrialOrder from "./routes/TrialOrder";
 
 
 const AppRouter = ({isLoggedIn}) => {
-    console.log("is loggedIn : ");
-    if (isLoggedIn) {
-        console.log("true@!#");
-        console.log(isLoggedIn);
 
-    } else {
-        console.log("false@#!");
-        console.log(isLoggedIn);
-    }
-    
     return (
         <Router>
-            <Navigation isLoggedIn={isLoggedIn}/>  {/***  Navigation Bar ***/}
+            {/***  Navigation Bar  ***/}
+            <Navigation isLoggedIn={isLoggedIn}/>  
             
             <Route path="/" exact={true} component={Home}/>
             <Route path="/oauth" component={KakaoLoginHome} />
@@ -38,6 +31,7 @@ const AppRouter = ({isLoggedIn}) => {
             <Route path="/EmailSignUp" component={EmailSignUp}/>
             <Route path="/SubscribeTest" component={SubscribeTest}/>
             <Route path="/Trial" component={Trial}/>
+            <Route path="/Trial-Order" component={TrialOrder}/>
             
             <Footer />
         </Router>

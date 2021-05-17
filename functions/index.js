@@ -32,7 +32,7 @@ exports.kakaoPayRequest = functions.https.onCall((data) => {
   orderData.append("cid", "TC0ONETIME");
   orderData.append("partner_order_id", "partner_order_id");
   orderData.append("partner_user_id", data.uid);
-  orderData.append("item_name", "BacsTest");
+  orderData.append("item_name", data.coffeeType);
   orderData.append("quantity", data.beansQuantity);
   orderData.append("total_amount", data.beansPrice);
   orderData.append("tax_free_amount", 0);

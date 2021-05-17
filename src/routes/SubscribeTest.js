@@ -4,7 +4,6 @@ import { firebaseInstance } from "../FireBase";
 import { isMobile } from "react-device-detect";
 
 const SubscribeTest = () => {
-    
 
     const history = useHistory();
     const [coffeeType, setCoffeeType] = useState("coffeeBeans");
