@@ -35,7 +35,7 @@
 1. <pre>npm run build</pre>
 2. <pre>firebase serve --only hosting</pre>
 
-## How to build & deploy
+## How to deploy
 
 ---
 
