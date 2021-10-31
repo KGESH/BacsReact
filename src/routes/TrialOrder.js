@@ -5,7 +5,6 @@ import { firebaseInstance } from "../FireBase"
 import { isMobile } from "react-device-detect";
 
 
-
 const TrialOrder = (props) => {
     const location = useLocation();
     const orderData = location.state;
